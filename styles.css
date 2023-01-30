@@ -1,3 +1,64 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 body {
-  background-color: grey;
+  display: flex;
+  justify-content: center;
+}
+.card {
+  margin: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 500px;
+  height: 500px;
+  background-color: rgb(109, 94, 158);
+  box-shadow: 5px 5px 20px black;
+  border-radius: 20px;
+  position: relative;
+}
+.question {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.showanswer {
+  height: 50px;
+  width: 200px;
+  margin-top: 10px;
+  background-color: rgb(91, 68, 141);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.bigtext {
+  font-size: 26px;
+}
+
+.tags {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  font-size: 20px;
+}
+
+.tag {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px;
+  background-color: aliceblue;
+}
+.shadow {
+  box-shadow: 5px 5px 10px black;
+}
+.bookmark {
+  position: absolute;
+  right: 20px;
+  top: -20px;
 }
