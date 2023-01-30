@@ -1,3 +1,83 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 body {
-  background-color: grey;
+  display: flex;
+  justify-content: center;
+}
+.card {
+  margin: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 500px;
+  height: 500px;
+  background-color: rgb(203, 212, 145);
+  box-shadow: 5px 5px 20px black;
+  border-radius: 20px;
+  position: relative;
+}
+.question {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.showanswer {
+  height: 50px;
+  width: 200px;
+  margin-top: 10px;
+  background-color: rgb(201, 215, 111);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.answer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.showanswer:hover {
+  background-color: rgb(193, 213, 61);
+  cursor: pointer;
+}
+
+.bigtext {
+  font-size: 26px;
+}
+
+.tags {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  font-size: 20px;
+}
+
+.tag {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px;
+  background-color: rgb(207, 211, 177);
+}
+.shadow {
+  box-shadow: 5px 5px 10px black;
+}
+.bookmark {
+  background-image: url(/images/bookmark.gif);
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  right: 20px;
+  top: -20px;
+  background-blend-mode: ;
+}
+.bookmark:hover {
+  cursor: pointer;
+  background-image: url(/images/bookmarkblack.gif);
 }
