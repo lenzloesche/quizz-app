@@ -3,10 +3,13 @@
   padding: 0;
   margin: 0;
 }
-
 body {
+  background-color: rgb(211, 216, 181);
+}
+.cardcontainer {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .card {
   margin: 30px;
@@ -69,15 +72,57 @@ body {
   box-shadow: 5px 5px 10px black;
 }
 .bookmark {
-  background-image: url(/images/bookmark.gif);
   position: absolute;
   height: 60px;
   width: 60px;
   right: 20px;
   top: -20px;
-  background-blend-mode: ;
 }
+
 .bookmark:hover {
   cursor: pointer;
-  background-image: url(/images/bookmarkblack.gif);
+}
+
+footer {
+  bottom: 0;
+  box-shadow: 0 -5px 20px black;
+}
+
+.navitem {
+  height: 78px;
+  width: 160px;
+  padding-top: 5px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.navitem:hover {
+  background-color: rgb(193, 213, 61);
+  cursor: pointer;
+}
+header {
+  top: 0;
+  box-shadow: 0 5px 20px black;
+}
+
+.front {
+  border: 1px solid black;
+  border-radius: 20px;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  z-index: 1;
+  width: 600px;
+  height: 80px;
+  background-color: rgb(203, 212, 145);
+}
+h1 {
+  margin-top: 10px;
+}
+
+.emptycontainer {
+  height: 100px;
+  width: 600px;
 }
