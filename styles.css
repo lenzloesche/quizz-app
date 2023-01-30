@@ -2,6 +2,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: "Times New Roman", Times, serif;
 }
 body {
   background-color: rgb(211, 216, 181);
@@ -12,15 +13,15 @@ body {
   flex-direction: column;
 }
 .card {
-  margin: 30px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
-  width: 90vw;
+  justify-content: space-evenly;
+  width: 90ve;
   height: 400px;
+  margin: 30px;
   background-color: rgb(203, 212, 145);
-  box-shadow: 5px 5px 20px black;
+  box-shadow: 0 0 20px black;
   border-radius: 20px;
   position: relative;
 }
@@ -102,6 +103,11 @@ footer {
   background-color: rgb(193, 213, 61);
   cursor: pointer;
 }
+
+.navitemcolor {
+  background-color: rgb(211, 216, 181);
+}
+
 header {
   top: 0;
   box-shadow: 0 5px 20px black;
@@ -138,6 +144,31 @@ h1 {
   }
   .emptycontainer {
     height: 100px;
-    width: 600px;
+    width: 200px;
   }
+}
+.user {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.counter {
+  width: 80px;
+  background-color: rgb(207, 211, 177);
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px black;
+}
+
+.hugeletters {
+  font-size: 40px;
+}
+
+.flexcolumn {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
 }
