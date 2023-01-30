@@ -95,19 +95,19 @@ footer {
 
 .navitem {
   height: 78px;
-  width: 160px;
+  width: 100px;
   padding-top: 5px;
   text-align: center;
-  margin-left: 10px;
-  margin-right: 10px;
+
+  border-radius: 10px;
 }
 .navitem:hover {
-  background-color: rgb(193, 213, 61);
+  background-color: rgb(202, 216, 192);
   cursor: pointer;
 }
 
 .navitemcolor {
-  background-color: rgb(211, 216, 181);
+  background-color: rgb(102, 105, 87);
 }
 
 header {
@@ -122,14 +122,12 @@ header {
   transform: translate(-50%);
   display: flex;
   justify-content: center;
+  align-items: center;
   position: fixed;
   z-index: 1;
   width: 90vw;
   height: 80px;
   background-color: rgb(203, 212, 145);
-}
-h1 {
-  margin-top: 10px;
 }
 
 .emptycontainer {
@@ -142,11 +140,16 @@ h1 {
     height: 500px;
   }
   .front {
-    width: 600px;
+    width: 540px;
   }
   .emptycontainer {
     height: 100px;
     width: 200px;
+  }
+  .navitem {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 130px;
   }
 }
 .user {
@@ -177,12 +180,9 @@ h1 {
   align-items: center;
   flex-direction: column;
 }
-.hover {
-  background-size: 70px 70px;
-}
+
 .hover:hover {
   cursor: pointer;
-  background-size: 702px 720px;
 }
 
 .flexcolumn {
