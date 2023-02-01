@@ -8,7 +8,7 @@ const darkModeSwitch = document.querySelector('[data-js="dark-mode-switch"]');
 let darkmodeOn = sessionStorage.getItem("darkModeOn");
 
 darkModeSwitch.addEventListener("click", () => {
-  if (darkmodeOn == "0") {
+  if (darkmodeOn == "0" || !darkmodeOn) {
     darkModeSwitch.src = "/images/switch_on.svg";
     sessionStorage.setItem("darkModeOn", "1");
     darkmodeOn = "1";

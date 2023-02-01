@@ -13,5 +13,4 @@ function changeTheme() {
 }
 if (darkmodeOn == "1") {
   changeTheme();
-  darkModeSwitch.src = "/images/switch_on.svg";
 }
