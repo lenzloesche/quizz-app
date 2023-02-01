@@ -1,133 +1,10 @@
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  font-family: "Times New Roman", Times, serif;
-}
-body {
-  background-color: rgb(211, 216, 181);
-}
-.cardcontainer {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-.card {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  width: 90ve;
-  height: 400px;
-  margin: 30px;
-  background-color: rgb(203, 212, 145);
-  box-shadow: 0 0 20px black;
-  border-radius: 20px;
-  position: relative;
-}
+@import "global.css";
+@import "/components/card.css";
+@import "/components/profile.css";
+@import "/components/headerfooter.css";
 
-.question {
-  text-align: center;
-  margin-bottom: 20px;
-}
-.showanswer {
-  height: 50px;
-  width: 200px;
-  margin-top: 20px;
-  margin-bottom: 30px;
-  background-color: rgb(201, 215, 111);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid black;
-  border-radius: 10px;
-}
-.answer {
-  text-align: center;
-}
-
-.showanswer:hover {
-  background-color: rgb(193, 213, 61);
-  cursor: pointer;
-}
-
-.bigtext {
-  font-size: 26px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.tags {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  display: flex;
-  font-size: 20px;
-}
-
-.tag {
-  border: 1px solid black;
-  border-radius: 10px;
-  padding: 5px;
-  margin: 5px;
-  background-color: rgb(207, 211, 177);
-}
 .shadow {
   box-shadow: 5px 5px 10px black;
-}
-.bookmark {
-  position: absolute;
-  height: 60px;
-  width: 60px;
-  right: 20px;
-  top: -20px;
-}
-
-.bookmark:hover {
-  cursor: pointer;
-  content: url(images/bookmark_black.svg);
-}
-
-footer {
-  bottom: 0;
-  box-shadow: 0 -5px 20px black;
-}
-
-.navitem {
-  height: 78px;
-  width: 100px;
-  padding-top: 5px;
-  text-align: center;
-
-  border-radius: 10px;
-}
-.navitem:hover {
-  background-color: rgb(202, 216, 192);
-  cursor: pointer;
-}
-
-.navitemcolor {
-  background-color: rgb(102, 105, 87);
-}
-
-header {
-  top: 0;
-  box-shadow: 0 5px 20px black;
-}
-
-.front {
-  border: 1px solid black;
-  border-radius: 20px;
-  left: 50%;
-  transform: translate(-50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  z-index: 1;
-  width: 90vw;
-  height: 80px;
-  background-color: rgb(203, 212, 145);
 }
 
 .emptycontainer {
@@ -135,52 +12,15 @@ header {
   width: 90vw;
 }
 @media only screen and (min-width: 600px) {
-  .card {
-    width: 500px;
-    height: 500px;
-  }
-  .front {
-    width: 540px;
-  }
   .emptycontainer {
     height: 100px;
     width: 200px;
   }
-  .navitem {
-    margin-left: 10px;
-    margin-right: 10px;
-    width: 130px;
-  }
-}
-.user {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.counter {
-  width: 80px;
-  background-color: rgb(207, 211, 177);
-  border: 1px solid black;
-  border-radius: 10px;
-  box-shadow: 5px 5px 10px black;
-}
-
-.profile {
-  height: 80vh;
 }
 
 .hugeletters {
   font-size: 40px;
 }
-
-.switch {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
 .hover:hover {
   cursor: pointer;
 }
@@ -190,4 +30,13 @@ header {
   flex-direction: row;
   width: 100%;
   justify-content: space-evenly;
+}
+
+.body--dark-mode {
+  background-color: black;
+  color: rgb(218, 218, 218);
+}
+
+.card--dark-mode {
+  background-color: rgb(20, 21, 14);
 }

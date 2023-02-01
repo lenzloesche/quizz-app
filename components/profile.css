@@ -1,0 +1,22 @@
+.profile {
+  height: 80vh;
+}
+.profile__user {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.profile__counter {
+  width: 80px;
+  background-color: var(--body-color);
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px black;
+}
+
+.profile__switch {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

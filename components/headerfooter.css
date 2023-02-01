@@ -1,0 +1,48 @@
+header {
+  top: 0;
+  box-shadow: 0 5px 20px black;
+}
+
+.front {
+  border: 1px solid black;
+  border-radius: 20px;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  width: 90vw;
+  height: 80px;
+  background-color: var(--card-color);
+}
+footer {
+  bottom: 0;
+  box-shadow: 0 -5px 20px black;
+}
+.nav__item {
+  height: 78px;
+  width: 100px;
+  padding-top: 5px;
+  text-align: center;
+  border-radius: 10px;
+}
+.nav__item:hover {
+  background-color: var(--hover-color);
+  cursor: pointer;
+}
+
+.nav__item-color {
+  background-color: var(--nav-item-color);
+}
+@media only screen and (min-width: 600px) {
+  .front {
+    width: 540px;
+  }
+  .nav__item {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 130px;
+  }
+}

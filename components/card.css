@@ -1,0 +1,82 @@
+.cardcontainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 90ve;
+  height: 400px;
+  margin: 30px;
+  background-color: var(--card-color);
+  box-shadow: 0 0 20px black;
+  border-radius: 20px;
+  position: relative;
+}
+
+.card__question {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.card__showanswer {
+  height: 50px;
+  width: 200px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  background-color: var(--card-show-answer-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.card__answer {
+  text-align: center;
+}
+
+.card__showanswer:hover {
+  background-color: var(--hover-color);
+  cursor: pointer;
+}
+.card__bookmark {
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  right: 20px;
+  top: -20px;
+}
+.card__bookmark:hover {
+  cursor: pointer;
+  content: url(../images/bookmark_black.svg);
+}
+
+.card__tags {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  font-size: 20px;
+}
+
+.card__tag {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px;
+  background-color: var(--body-color);
+}
+.card__bigtext {
+  font-size: 26px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+  .card {
+    width: 500px;
+    height: 500px;
+  }
+}
