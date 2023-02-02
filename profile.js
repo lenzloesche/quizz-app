@@ -2,6 +2,10 @@ const body = document.querySelector('[data-js="body"]');
 const card = document.querySelector('[data-js="card"]');
 const header = document.querySelector('[data-js="header"]');
 const footer = document.querySelector('[data-js="footer"]');
+const navItemSelected = document.querySelector(
+  '[data-js="nav__item-selected"]'
+);
+console.log(navItemSelected);
 const counter1 = document.querySelector('[data-js="counter1"]');
 const counter2 = document.querySelector('[data-js="counter2"]');
 const darkModeSwitch = document.querySelector('[data-js="dark-mode-switch"]');
@@ -25,6 +29,7 @@ function changeTheme() {
   card.classList.toggle("card--dark-mode");
   header.classList.toggle("card--dark-mode");
   footer.classList.toggle("card--dark-mode");
+  navItemSelected.classList.toggle("nav--dark-mode");
   counter1.classList.toggle("card--dark-mode");
   counter2.classList.toggle("card--dark-mode");
 }

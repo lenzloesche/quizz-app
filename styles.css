@@ -21,9 +21,6 @@
 .hugeletters {
   font-size: 40px;
 }
-.hover:hover {
-  cursor: pointer;
-}
 
 .flexcolumn {
   display: flex;
@@ -33,10 +30,14 @@
 }
 
 .body--dark-mode {
-  background-color: black;
-  color: rgb(218, 218, 218);
+  background-color: #0a0d11;
+  color: #c9d1d9;
 }
 
 .card--dark-mode {
-  background-color: rgb(20, 21, 14);
+  background-color: #0d1117;
+}
+
+.nav--dark-mode {
+  background-color: #1f2837;
 }

@@ -14,7 +14,7 @@
     </header>
     <div class="emptycontainer"></div>
     <div class="cardcontainer">
-      <section class="card">
+      <section class="card" data-js="card">
         <img
           src="images/bookmark_black.svg"
           alt="bookmark svg"
@@ -23,14 +23,14 @@
         <p class="card__question card__bigtext">
           How many years did it take to build the Cologne cathedral?
         </p>
-        <div class="card__showanswer shadow">
+        <div data-js="show_answer" class="card__showanswer shadow">
           <p class="card__bigtext">Show answer.</p>
         </div>
         <p class="card__answer card__bigtext">632 Years.</p>
         <div class="card__tags">
-          <div class="card__tag shadow"><p>#html</p></div>
-          <div class="card__tag shadow"><p>#css</p></div>
-          <div class="card__tag shadow"><p>#flexbox</p></div>
+          <div data-js="tag" class="card__tag shadow"><p>#html</p></div>
+          <div data-js="tag" class="card__tag shadow"><p>#css</p></div>
+          <div data-js="tag" class="card__tag shadow"><p>#flexbox</p></div>
         </div>
       </section>
       <section class="card" data-js="card">
@@ -42,14 +42,14 @@
         <p class="card__question card__bigtext">
           How many years did it take to build the Cologne cathedral?
         </p>
-        <div class="card__showanswer shadow">
+        <div data-js="show_answer" class="card__showanswer shadow">
           <p class="card__bigtext">Show answer.</p>
         </div>
         <p class="card__answer card__bigtext">632 Years.</p>
         <div class="card__tags">
-          <div class="card__tag shadow"><p>#html</p></div>
-          <div class="card__tag shadow"><p>#css</p></div>
-          <div class="card__tag shadow"><p>#flexbox</p></div>
+          <div data-js="tag" class="card__tag shadow"><p>#html</p></div>
+          <div data-js="tag" class="card__tag shadow"><p>#css</p></div>
+          <div data-js="tag" class="card__tag shadow"><p>#flexbox</p></div>
         </div>
       </section>
     </div>
@@ -66,7 +66,7 @@
         </div>
       </a>
       <a href="bookmarks.html">
-        <div class="nav__item nav__item-color">
+        <div data-js="nav__item-selected" class="nav__item nav__item-color">
           <img
             src="/images/bookmark_black.svg"
             alt="SVG homebutton"
