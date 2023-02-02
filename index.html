@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="./index.js" defer></script>
     <title>Lenz' Quiz App - Home</title>
   </head>
   <body>
@@ -24,10 +25,10 @@
           How many years did it take to build the Cologne cathedral?
         </p>
 
-        <div class="showanswer shadow">
+        <div class="showanswer shadow" data-js="showanswer">
           <p class="bigtext">Show answer.</p>
         </div>
-        <p class="answer bigtext">632 Years.</p>
+        <p data-js="answer" class="answer bigtext">...</p>
 
         <div class="tags">
           <div class="tag shadow"><p>#html</p></div>
