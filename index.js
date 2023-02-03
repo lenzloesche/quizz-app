@@ -1,9 +1,8 @@
-const answer = document.querySelector('[data-js="answer"]');
+const answer = document.querySelectorAll('[data-js="answer"]');
 
 const body = document.querySelector('[data-js="body"]');
 const card = document.querySelectorAll('[data-js="card"]');
-const showAnswer = document.querySelectorAll('[data-js="show_answer"]');
-console.log(showAnswer);
+const show_answer = document.querySelectorAll('[data-js="show_answer"]');
 const navItemSelected = document.querySelector(
   '[data-js="nav__item-selected"]'
 );
@@ -14,9 +13,17 @@ const footer = document.querySelector('[data-js="footer"]');
 
 let darkmodeOn = sessionStorage.getItem("darkModeOn");
 
-showAnswer.addEventListener("click", () => {
-  answer.innerHTML = answer.innerHTML === "..." ? "632 Years." : "...";
-});
+let numberOfCards = 4;
+
+for (let i = 0; i < numberOfCards; i++) {
+  show_answer[i].addEventListener("click", () => {
+    answer[i].innerHTML = answer[i].innerHTML === "..." ? "632 Years." : "...";
+    show_answer[i].children[0].innerHTML =
+      show_answer[i].children[0].innerHTML === "Show answer"
+        ? "Hide answer"
+        : "Show answer";
+  });
+}
 
 function changeTheme() {
   body.classList.toggle("body--dark-mode");
