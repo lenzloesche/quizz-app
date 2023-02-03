@@ -2,7 +2,6 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "Times New Roman", Times, serif;
 }
 
 :root {
@@ -15,4 +14,10 @@
 
 body {
   background-color: var(--body-color);
+  font-family: "Times New Roman", Times, serif;
+}
+
+main {
+  margin-top: 100px;
+  margin-bottom: 100px;
 }

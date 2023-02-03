@@ -9,7 +9,6 @@
   flex-direction: column;
   justify-content: center;
   width: 90ve;
-  height: 400px;
   margin: 30px;
   background-color: var(--card-color);
   box-shadow: 0 0 20px black;
@@ -20,10 +19,10 @@
 .card__question {
   text-align: center;
   margin-bottom: 20px;
+  margin-top: 40px;
 }
 .card__showanswer {
-  height: 50px;
-  width: 200px;
+  padding: 5px;
   margin-top: 20px;
   margin-bottom: 30px;
   background-color: var(--card-show-answer-color);
@@ -35,6 +34,7 @@
 }
 .card__answer {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .card__showanswer:hover {
@@ -54,9 +54,10 @@
 }
 
 .card__tags {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
+  width: 100%;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  justify-content: left;
   display: flex;
   font-size: 20px;
 }
@@ -67,6 +68,7 @@
   padding: 5px;
   margin: 5px;
   background-color: var(--body-color);
+  list-style-type: none;
 }
 .card__bigtext {
   font-size: 26px;
@@ -77,6 +79,5 @@
 @media only screen and (min-width: 600px) {
   .card {
     width: 500px;
-    height: 500px;
   }
 }

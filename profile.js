@@ -5,7 +5,7 @@ const footer = document.querySelector('[data-js="footer"]');
 const navItemSelected = document.querySelector(
   '[data-js="nav__item-selected"]'
 );
-console.log(navItemSelected);
+
 const counter1 = document.querySelector('[data-js="counter1"]');
 const counter2 = document.querySelector('[data-js="counter2"]');
 const darkModeSwitch = document.querySelector('[data-js="dark-mode-switch"]');
@@ -13,7 +13,7 @@ let darkmodeOn = sessionStorage.getItem("darkModeOn");
 
 darkModeSwitch.addEventListener("click", () => {
   if (darkmodeOn == "0" || !darkmodeOn) {
-    darkModeSwitch.src = "/images/switch_on.svg";
+    darkModeSwitch.src = "/images/switch_on.gif";
     sessionStorage.setItem("darkModeOn", "1");
     darkmodeOn = "1";
   } else {
@@ -35,5 +35,5 @@ function changeTheme() {
 }
 if (darkmodeOn == "1") {
   changeTheme();
-  darkModeSwitch.src = "/images/switch_on.svg";
+  darkModeSwitch.src = "/images/switch_on.gif";
 }

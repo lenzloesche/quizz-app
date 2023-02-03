@@ -7,10 +7,6 @@
   box-shadow: 5px 5px 10px black;
 }
 
-.emptycontainer {
-  height: 100px;
-  width: 90vw;
-}
 @media only screen and (min-width: 600px) {
   .emptycontainer {
     height: 100px;
