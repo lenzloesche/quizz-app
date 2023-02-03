@@ -13,11 +13,21 @@ const footer = document.querySelector('[data-js="footer"]');
 
 let darkmodeOn = sessionStorage.getItem("darkModeOn");
 
-let numberOfCards = 4;
+const numberOfCards = 4;
+const answersIndex = ["632 Years.", "lorem ipsum", "hallo", "wurst"];
+const answersBookmarks = ["Nummer 1", "Gabelung", "Zeit", "Testen"];
+let answerOutput = [];
+
+if (document.URL.includes("bookmarks.html")) {
+  answerOutput = answersBookmarks;
+} else {
+  answerOutput = answersIndex;
+}
 
 for (let i = 0; i < numberOfCards; i++) {
   show_answer[i].addEventListener("click", () => {
-    answer[i].innerHTML = answer[i].innerHTML === "..." ? "632 Years." : "...";
+    answer[i].innerHTML =
+      answer[i].innerHTML === "..." ? answerOutput[i] : "...";
     show_answer[i].children[0].innerHTML =
       show_answer[i].children[0].innerHTML === "Show answer."
         ? "Hide answer."
