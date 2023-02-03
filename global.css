@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --body-color: rgb(211, 216, 181);
+  --card-color: rgb(203, 212, 145);
+  --hover-color: rgb(202, 216, 192);
+  --nav-item-color: rgb(102, 105, 87);
+  --card-show-answer-color: rgb(201, 215, 111);
+}
+
+body {
+  background-color: var(--body-color);
+  font-family: "Times New Roman", Times, serif;
+}
+
+main {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
