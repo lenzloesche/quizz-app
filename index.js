@@ -19,9 +19,9 @@ for (let i = 0; i < numberOfCards; i++) {
   show_answer[i].addEventListener("click", () => {
     answer[i].innerHTML = answer[i].innerHTML === "..." ? "632 Years." : "...";
     show_answer[i].children[0].innerHTML =
-      show_answer[i].children[0].innerHTML === "Show answer"
-        ? "Hide answer"
-        : "Show answer";
+      show_answer[i].children[0].innerHTML === "Show answer."
+        ? "Hide answer."
+        : "Show answer.";
   });
 }
 
