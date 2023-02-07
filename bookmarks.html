@@ -10,24 +10,35 @@
   </head>
   <body data-js="body">
     <header class="front" data-js="header">
-      <h1>QUIZ APP</h1>
+      <h1 aria-label="title">QUIZ APP</h1>
     </header>
 
     <main class="cardcontainer">
       <section class="card" data-js="card">
         <img
+          aria-label="bookmark button"
           src="images/bookmark_black.svg"
           alt="bookmark icon"
           class="card__bookmark"
         />
-        <p class="card__question card__bigtext">
+        <p aria-label="question" class="card__question card__bigtext">
           How many years did it take to build the Cologne cathedral?
         </p>
-        <button data-js="show_answer" class="card__showanswer shadow">
+        <button
+          aria-label="button to show answer"
+          data-js="show_answer"
+          class="card__showanswer shadow"
+        >
           <p class="card__bigtext">Show answer.</p>
         </button>
-        <p class="card__answer card__bigtext" data-js="answer">...</p>
-        <ul class="card__tags">
+        <p
+          aria-label="answer"
+          class="card__answer card__bigtext"
+          data-js="answer"
+        >
+          ...
+        </p>
+        <ul aria-label="list of tags relevant to question" class="card__tags">
           <li data-js="tag" class="card__tag shadow"><p>#html</p></li>
           <li data-js="tag" class="card__tag shadow"><p>#css</p></li>
           <li data-js="tag" class="card__tag shadow"><p>#flexbox</p></li>
@@ -35,18 +46,29 @@
       </section>
       <section class="card" data-js="card">
         <img
+          aria-label="bookmark button"
           src="images/bookmark_black.svg"
           alt="bookmark icon"
           class="card__bookmark"
         />
-        <p class="card__question card__bigtext">
+        <p aria-label="question" class="card__question card__bigtext">
           How many years did it take to build the Cologne cathedral?
         </p>
-        <button data-js="show_answer" class="card__showanswer shadow">
+        <button
+          aria-label="button to show answer"
+          data-js="show_answer"
+          class="card__showanswer shadow"
+        >
           <p class="card__bigtext">Show answer.</p>
         </button>
-        <p class="card__answer card__bigtext" data-js="answer">...</p>
-        <ul class="card__tags">
+        <p
+          aria-label="answer"
+          class="card__answer card__bigtext"
+          data-js="answer"
+        >
+          ...
+        </p>
+        <ul aria-label="list of tags relevant to question" class="card__tags">
           <li data-js="tag" class="card__tag shadow"><p>#html</p></li>
           <li data-js="tag" class="card__tag shadow"><p>#css</p></li>
           <li data-js="tag" class="card__tag shadow"><p>#flexbox</p></li>
@@ -54,21 +76,32 @@
       </section>
       <section class="card" data-js="card">
         <img
+          aria-label="bookmark button"
           src="images/bookmark_black.svg"
           alt="bookmark icon"
           class="card__bookmark"
         />
 
-        <p class="card__question card__bigtext">
+        <p aria-label="question" class="card__question card__bigtext">
           How many years did it take to build the Cologne cathedral?
         </p>
 
-        <button data-js="show_answer" class="card__showanswer shadow">
+        <button
+          aria-label="button to show answer"
+          data-js="show_answer"
+          class="card__showanswer shadow"
+        >
           <p class="card__bigtext">Show answer.</p>
         </button>
-        <p class="card__answer card__bigtext" data-js="answer">...</p>
+        <p
+          aria-label="answer"
+          class="card__answer card__bigtext"
+          data-js="answer"
+        >
+          ...
+        </p>
 
-        <ul class="card__tags">
+        <ul aria-label="list of tags relevant to question" class="card__tags">
           <li data-js="tag" class="card__tag shadow"><p>#html</p></li>
           <li data-js="tag" class="card__tag shadow"><p>#css</p></li>
           <li data-js="tag" class="card__tag shadow"><p>#flexbox</p></li>
@@ -76,21 +109,32 @@
       </section>
       <section class="card" data-js="card">
         <img
+          aria-label="bookmark button"
           src="images/bookmark_black.svg"
           alt="bookmark icon"
           class="card__bookmark"
         />
-        <p class="card__question card__bigtext">
+        <p aria-label="question" class="card__question card__bigtext">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere,
           dignissimos laboriosam maxime, exercitationem asperiores porro quo hic
           consequuntur beatae iure maiores, ipsam vel dolore dolores?
           Voluptatibus laborum quisquam veniam consectetur?
         </p>
-        <button data-js="show_answer" class="card__showanswer shadow">
+        <button
+          aria-label="button to show answer"
+          data-js="show_answer"
+          class="card__showanswer shadow"
+        >
           <p class="card__bigtext">Show answer.</p>
         </button>
-        <p class="card__answer card__bigtext" data-js="answer">...</p>
-        <ul class="card__tags">
+        <p
+          aria-label="answer"
+          class="card__answer card__bigtext"
+          data-js="answer"
+        >
+          ...
+        </p>
+        <ul aria-label="list of tags relevant to question" class="card__tags">
           <li data-js="tag" class="card__tag shadow"><p>#html</p></li>
           <li data-js="tag" class="card__tag shadow"><p>#css</p></li>
           <li data-js="tag" class="card__tag shadow"><p>#flexbox</p></li>
@@ -98,7 +142,7 @@
       </section>
     </main>
     <footer class="front" data-js="footer">
-      <a href="index.html">
+      <a href="index.html" aria-label="link to index.html page">
         <div class="nav__item">
           <img
             src="/images/home_white.svg"
@@ -108,7 +152,7 @@
           />
         </div>
       </a>
-      <a href="bookmarks.html">
+      <a href="bookmarks.html" aria-label="link to bookmarks.html page">
         <div data-js="nav__item-selected" class="nav__item nav__item-color">
           <img
             src="/images/bookmark_black.svg"
@@ -118,7 +162,7 @@
           />
         </div>
       </a>
-      <a href="profile.html">
+      <a href="profile.html" aria-label="link to profile.html page">
         <div class="nav__item">
           <img
             src="/images/user_white.svg"
