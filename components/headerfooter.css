@@ -1,6 +1,7 @@
 header {
   top: 0;
   box-shadow: 0 5px 20px black;
+  background-color: var(--nav-color);
 }
 
 .front {
@@ -15,11 +16,11 @@ header {
   z-index: 1;
   width: 90vw;
   height: 80px;
-  background-color: var(--card-color);
 }
 footer {
   bottom: 0;
   box-shadow: 0 -5px 20px black;
+  background-color: var(--nav-color);
 }
 .nav__item {
   height: 78px;

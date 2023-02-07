@@ -5,11 +5,19 @@
 }
 
 :root {
-  --body-color: rgb(211, 216, 181);
+  /*--body-color: rgb(211, 216, 181);  
   --card-color: rgb(203, 212, 145);
   --hover-color: rgb(202, 216, 192);
   --nav-item-color: rgb(102, 105, 87);
-  --card-show-answer-color: rgb(201, 215, 111);
+  --card-show-answer-color: rgb(201, 215, 111);  
+  */
+
+  --body-color: rgb(118, 55, 55);
+  --card-color: rgb(206, 213, 157);
+  --nav-color: rgb(255, 255, 255);
+  --hover-color: rgb(202, 216, 192);
+  --nav-item-color: rgb(102, 105, 87);
+  --card-show-answer-color: rgb(118, 55, 55);
 }
 
 body {
