@@ -22,7 +22,6 @@
   margin-top: 40px;
 }
 .card__showanswer {
-  color: white;
   padding: 5px;
   margin-top: 20px;
   margin-bottom: 30px;
@@ -40,7 +39,6 @@
   border: 3px solid black;
   border-radius: 10px;
   background-color: var(--answer-color);
-  box-shadow: 5px 5px 10px black;
 }
 
 .card__showanswer:hover {
@@ -61,7 +59,6 @@
 }
 
 .card__tags {
-  color: white;
   width: 100%;
   margin-left: 20px;
   margin-bottom: 10px;
@@ -75,7 +72,7 @@
   border-radius: 10px;
   padding: 5px;
   margin: 5px;
-  background-color: var(--body-color);
+  background-color: var(--card-color);
   list-style-type: none;
 }
 .card__bigtext {

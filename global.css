@@ -5,13 +5,13 @@
 }
 
 :root {
-  --body-color: rgb(118, 55, 55);
+  --body-color: rgb(184, 140, 140);
   --card-color: rgb(206, 213, 157);
-  --nav-color: rgb(166, 237, 251);
+  --nav-color: rgb(118, 55, 55);
   --hover-color: rgb(202, 216, 192);
-  --nav-item-color: rgb(102, 105, 87);
-  --card-show-answer-color: rgb(118, 55, 55);
-  --answer-color: white;
+  --nav-item-color: rgb(255, 255, 255);
+  --card-show-answer-color: var(--card-color);
+  --answer-color: var(--card-color);
 }
 
 body {

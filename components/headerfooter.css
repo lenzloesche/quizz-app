@@ -2,6 +2,8 @@ header {
   top: 0;
   box-shadow: 0 5px 20px black;
   background-color: var(--nav-color);
+  justify-content: space-around;
+  color: white;
 }
 
 .front {
@@ -10,7 +12,7 @@ header {
   left: 50%;
   transform: translate(-50%);
   display: flex;
-  justify-content: center;
+
   align-items: center;
   position: fixed;
   z-index: 1;
@@ -18,10 +20,28 @@ header {
   height: 80px;
 }
 footer {
+  justify-content: center;
   bottom: 0;
   box-shadow: 0 -5px 20px black;
   background-color: var(--nav-color);
 }
+
+.header__language-buttons {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  border: 3px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: var(--nav-color);
+  padding: 5px 10px;
+}
+
+.header__language-buttons:hover {
+  background-color: var(--hover-color);
+  cursor: pointer;
+}
+
 .nav__item {
   height: 78px;
   width: 100px;
