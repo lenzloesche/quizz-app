@@ -57,14 +57,8 @@ const questionsQuery = document.querySelectorAll('[data-js="question"]');
 let currentLanguage = sessionStorage.getItem("currentLanguage");
 
 function changeLanguageTo(language) {
-  if (language === "english") {
-    for (let i = 0; i < questionsQuery.length; i++) {
-      questionsQuery[i].innerText = questionsOutput[i];
-    }
-  } else if (language === "german") {
-    for (let i = 0; i < questionsQuery.length; i++) {
-      questionsQuery[i].innerText = questionsGerman[i];
-    }
+  for (let i = 0; i < questionsQuery.length; i++) {
+    questionsQuery[i].innerText = questionsOutput[i];
   }
 }
 

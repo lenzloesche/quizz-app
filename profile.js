@@ -33,8 +33,12 @@ germanButton.addEventListener("click", () => {
 function changeLanguageTo(language) {
   if (language === "english") {
     darkModeText.innerText = darkModeTextEnglish;
+    germanButton.style.border = "0";
+    englishButton.style.border = "3px solid black";
   } else if (language === "german") {
     darkModeText.innerText = darkModeTextGerman;
+    germanButton.style.border = "3px solid black";
+    englishButton.style.border = "0";
   }
 }
 
