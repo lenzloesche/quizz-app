@@ -14,7 +14,7 @@ const footer = document.querySelector('[data-js="footer"]');
 let darkmodeOn = sessionStorage.getItem("darkModeOn");
 
 const numberOfCards = 4;
-const answersIndex = ["632 Years.", "lorem ipsum", "hallo", "wurst"];
+const answersIndex = ["632 Years.", "lorem ipsum", "hallo", "otherValue"];
 const answersBookmarks = ["Nummer 1", "Gabelung", "Zeit", "Testen"];
 let answerOutput = [];
 

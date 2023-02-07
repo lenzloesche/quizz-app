@@ -36,6 +36,11 @@
 .card__answer {
   text-align: center;
   margin-bottom: 20px;
+  font-weight: bolder;
+  border: 3px solid black;
+  border-radius: 10px;
+  background-color: var(--answer-color);
+  box-shadow: 5px 5px 10px black;
 }
 
 .card__showanswer:hover {
@@ -77,6 +82,11 @@
   font-size: 26px;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.card__answer.card__bigtext {
+  font-size: 32px;
+  padding: 10px;
 }
 
 @media only screen and (min-width: 600px) {

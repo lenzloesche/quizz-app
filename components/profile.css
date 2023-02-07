@@ -22,6 +22,10 @@
   align-items: center;
   flex-direction: column;
 }
+.profile__switch p {
+  font-size: 30px;
+  font-weight: bold;
+}
 
 .profile__switch-image:hover {
   cursor: pointer;
