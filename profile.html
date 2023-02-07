@@ -10,19 +10,7 @@
   </head>
   <body data-js="body">
     <header class="front" data-js="header">
-      <button
-        aria-label="English language button"
-        class="header__language-buttons"
-      >
-        English
-      </button>
       <h1 aria-label="title">QUIZ APP</h1>
-      <button
-        aria-label="Deutsche Sprache Button"
-        class="header__language-buttons"
-      >
-        Deutsch
-      </button>
     </header>
     <main class="cardcontainer">
       <section class="card profile" data-js="card">
@@ -66,7 +54,7 @@
         </div>
         <br /><br />
         <div class="profile__switch" aria-label="switch to dark mode">
-          <p>Dark Mode</p>
+          <p data-js="darkModeText" class="profile__text">Dark Mode</p>
           <img
             data-js="dark-mode-switch"
             class="profile__switch-image"
@@ -75,6 +63,23 @@
             width="70px"
             alt="switch icon"
           />
+        </div>
+        <p class="profile__text profile__text-2">Language/Sprache</p>
+        <div>
+          <button
+            aria-label="English language button"
+            class="profile__language-buttons"
+            data-js="englishButton"
+          >
+            English
+          </button>
+          <button
+            aria-label="Deutsche Sprache Button"
+            class="profile__language-buttons"
+            data-js="germanButton"
+          >
+            Deutsch
+          </button>
         </div>
       </section>
     </main>

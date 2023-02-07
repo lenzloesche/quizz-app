@@ -11,6 +11,41 @@ const counter2 = document.querySelector('[data-js="counter2"]');
 const darkModeSwitch = document.querySelector('[data-js="dark-mode-switch"]');
 let darkmodeOn = sessionStorage.getItem("darkModeOn");
 
+const darkModeText = document.querySelector('[data-js="darkModeText"]');
+const englishButton = document.querySelector('[data-js="englishButton"]');
+const germanButton = document.querySelector('[data-js="germanButton"]');
+let currentLanguage = sessionStorage.getItem("currentLanguage");
+const darkModeTextEnglish = "Dark Mode";
+const darkModeTextGerman = "Dunkler Modus";
+
+englishButton.addEventListener("click", () => {
+  currentLanguage = "english";
+  sessionStorage.setItem("currentLanguage", "english");
+  changeLanguageTo(currentLanguage);
+});
+
+germanButton.addEventListener("click", () => {
+  currentLanguage = "german";
+  sessionStorage.setItem("currentLanguage", "german");
+  changeLanguageTo(currentLanguage);
+});
+
+function changeLanguageTo(language) {
+  if (language === "english") {
+    darkModeText.innerText = darkModeTextEnglish;
+  } else if (language === "german") {
+    darkModeText.innerText = darkModeTextGerman;
+  }
+}
+
+if (currentLanguage != undefined) {
+  changeLanguageTo(currentLanguage);
+} else {
+  currentLanguage = "english";
+  sessionStorage.setItem("currentLanguage", "english");
+  changeLanguageTo("english");
+}
+
 darkModeSwitch.addEventListener("click", () => {
   if (darkmodeOn == "0" || !darkmodeOn) {
     darkModeSwitch.src = "/images/switch_on.gif";

@@ -21,11 +21,30 @@
   align-items: center;
   flex-direction: column;
 }
-.profile__switch p {
+.profile__text {
   font-size: 30px;
   font-weight: bold;
 }
 
+.profile__text-2 {
+  margin-bottom: 20px;
+}
+
 .profile__switch-image:hover {
+  cursor: pointer;
+}
+
+.profile__language-buttons {
+  font-size: 22px;
+  font-weight: bold;
+  border: 3px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: var(--card-color);
+  padding: 5px 10px;
+}
+
+.profile__language-buttons:hover {
+  background-color: var(--hover-color);
   cursor: pointer;
 }
