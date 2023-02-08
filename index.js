@@ -44,38 +44,125 @@ const footer = document.querySelector('[data-js="footer"]');
 let darkmodeOn = sessionStorage.getItem("darkModeOn");
 
 const numberOfCards = 5;
+
+const questions = [
+  "question 1?",
+  "question 2?",
+  "question 3?",
+  "question 4?",
+  "question 5?",
+];
+const questionsBookmarks = [
+  "question bookmarks 1?",
+  "question bookmarks 2?",
+  "question bookmarks 3?",
+  "question bookmarks 4?",
+];
+
 const answersIndex = [
-  "632 Years.",
-  "lorem ipsum",
-  "hallo",
-  "wurst",
-  "answer 5.",
+  "answer 1.",
+  "answer 2.",
+  "answer 3",
+  "answer 4",
+  "answer 5",
 ];
 const answersBookmarks = [
-  "Nummer 1",
-  "Gabelung",
-  "Zeit",
-  "Testen",
-  "answer bookmarks 5",
+  "bookmark answer 1.",
+  "bookmark answer 2",
+  "bookmark answer 4",
+  "bookmark answer 4",
 ];
 let answerOutput = [];
 
-if (document.URL.includes("bookmarks.html")) {
-  answerOutput = answersBookmarks;
-} else {
-  answerOutput = answersIndex;
+const questionsGerman = [
+  "Frage 1?",
+  "Frage 2?",
+  "Frage 3?",
+  "Frage 4?",
+  "Frage 4?",
+];
+const questionsBookmarksGerman = [
+  "Frage Bookmarks 1?",
+  "Frage Bookmarks 2?",
+  "Frage Bookmarks 3?",
+  "Frage Bookmarks 4?",
+  "Frage Bookmarks 5?",
+];
+const answersIndexGerman = [
+  "Antwort 1.",
+  "Antwort 2.",
+  "Antwort 3.",
+  "Antwort 4.",
+  "Antwort 5.",
+];
+const answersBookmarksGerman = [
+  "Bookmarkantwort 1.",
+  "Bookmarkantwort 2.",
+  "Bookmarkantwort 3.",
+  "Bookmarkantwort 4.",
+  "Bookmarkantwort 5.",
+];
+
+let questionsOutput = [];
+
+const questionsQuery = document.querySelectorAll('[data-js="question"]');
+let currentLanguage = sessionStorage.getItem("currentLanguage");
+
+function changeLanguageTo(language) {
+  for (let i = 0; i < questionsQuery.length; i++) {
+    questionsQuery[i].innerText = questionsOutput[i];
+  }
 }
+
+if (currentLanguage != undefined) {
+} else {
+  currentLanguage = "english";
+  sessionStorage.setItem("currentLanguage", "english");
+}
+for (let i = 0; i < numberOfCards; i++) {
+  changeHideAndShowAnswer(i);
+}
+
+if (document.URL.includes("bookmarks.html")) {
+  if (currentLanguage === "english") {
+    answerOutput = answersBookmarks;
+    questionsOutput = questionsBookmarks;
+  } else if (currentLanguage === "german") {
+    answerOutput = answersBookmarksGerman;
+    questionsOutput = questionsBookmarksGerman;
+  }
+} else {
+  if (currentLanguage === "english") {
+    answerOutput = answersIndex;
+    questionsOutput = questions;
+  } else if (currentLanguage === "german") {
+    answerOutput = answersIndexGerman;
+    questionsOutput = questionsGerman;
+  }
+}
+changeLanguageTo(currentLanguage);
 
 for (let i = 0; i < numberOfCards; i++) {
   console.log(i);
   show_answer[i].addEventListener("click", () => {
-    answer[i].innerHTML =
-      answer[i].innerHTML === "..." ? answerOutput[i] : "...";
-    show_answer[i].children[0].innerHTML =
-      show_answer[i].children[0].innerHTML === "Show answer."
+    answer[i].innerText =
+      answer[i].innerText === "..." ? answerOutput[i] : "...";
+    changeHideAndShowAnswer(i);
+  });
+}
+
+function changeHideAndShowAnswer(position) {
+  if (currentLanguage === "english") {
+    show_answer[position].children[0].innerHTML =
+      show_answer[position].children[0].innerHTML === "Show answer."
         ? "Hide answer."
         : "Show answer.";
-  });
+  } else if (currentLanguage === "german") {
+    show_answer[position].children[0].innerHTML =
+      show_answer[position].children[0].innerHTML === "Zeige Antwort."
+        ? "Verberge Antwort."
+        : "Zeige Antwort.";
+  }
 }
 
 function changeTheme() {
