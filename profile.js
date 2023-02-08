@@ -12,6 +12,8 @@ const darkModeSwitch = document.querySelector('[data-js="dark-mode-switch"]');
 let darkmodeOn = sessionStorage.getItem("darkModeOn");
 
 const darkModeText = document.querySelector('[data-js="darkModeText"]');
+const userName = document.querySelector('[data-js="userName"]');
+
 const englishButton = document.querySelector('[data-js="englishButton"]');
 const germanButton = document.querySelector('[data-js="germanButton"]');
 let currentLanguage = sessionStorage.getItem("currentLanguage");
@@ -33,9 +35,11 @@ germanButton.addEventListener("click", () => {
 function changeLanguageTo(language) {
   if (language === "english") {
     darkModeText.innerText = darkModeTextEnglish;
+    userName.innerText = "User Name";
     germanButton.style.border = "0";
     englishButton.style.border = "3px solid black";
   } else if (language === "german") {
+    userName.innerText = "Benutzername";
     darkModeText.innerText = darkModeTextGerman;
     germanButton.style.border = "3px solid black";
     englishButton.style.border = "0";
