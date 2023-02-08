@@ -1,3 +1,33 @@
+//genertae cards
+
+const section = document.createElement("section");
+const main = document.querySelector('[data-js="main"]');
+main.append(section);
+
+section.classList.add("card");
+section.setAttribute("data-js", "card");
+section.innerHTML = `
+        <img
+          src="images/bookmark_white.svg"
+          alt="bookmark icon"
+          class="card__bookmark"
+        />
+
+        <p class="card__question card__bigtext">
+          Computer generated?
+        </p>
+
+        <button data-js="show_answer" class="card__showanswer shadow">
+          <p class="card__bigtext">Show answer.</p>
+        </button>
+        <p class="card__answer card__bigtext" data-js="answer">...</p>
+
+        <ul class="card__tags">
+          <li data-js="tag" class="card__tag shadow"><p>#html</p></li>
+          <li data-js="tag" class="card__tag shadow"><p>#css</p></li>
+          <li data-js="tag" class="card__tag shadow"><p>#flexbox</p></li>
+        </ul>`;
+
 const answer = document.querySelectorAll('[data-js="answer"]');
 
 const body = document.querySelector('[data-js="body"]');
@@ -13,9 +43,21 @@ const footer = document.querySelector('[data-js="footer"]');
 
 let darkmodeOn = sessionStorage.getItem("darkModeOn");
 
-const numberOfCards = 4;
-const answersIndex = ["632 Years.", "lorem ipsum", "hallo", "wurst"];
-const answersBookmarks = ["Nummer 1", "Gabelung", "Zeit", "Testen"];
+const numberOfCards = 5;
+const answersIndex = [
+  "632 Years.",
+  "lorem ipsum",
+  "hallo",
+  "wurst",
+  "answer 5.",
+];
+const answersBookmarks = [
+  "Nummer 1",
+  "Gabelung",
+  "Zeit",
+  "Testen",
+  "answer bookmarks 5",
+];
 let answerOutput = [];
 
 if (document.URL.includes("bookmarks.html")) {
@@ -25,6 +67,7 @@ if (document.URL.includes("bookmarks.html")) {
 }
 
 for (let i = 0; i < numberOfCards; i++) {
+  console.log(i);
   show_answer[i].addEventListener("click", () => {
     answer[i].innerHTML =
       answer[i].innerHTML === "..." ? answerOutput[i] : "...";
