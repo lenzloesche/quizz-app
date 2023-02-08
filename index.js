@@ -59,18 +59,19 @@ const answersBookmarksGerman = [
 ];
 
 const tags = [
-  ["html", "css", "flexbox", "4", "five"],
-  ["html"],
-  ["html", "flexbox"],
-  ["html", "css", "flexbox"],
-  ["html", "css"],
+  ["tag1", "tag2", "tag3", "tag4", "tag5"],
+  ["tag1"],
+  ["tag1", "tag2"],
+  ["tag1", "tag2", "tag3"],
+  ["tag1", "tag2"],
 ];
 
-const numberOfCards = 5;
+let numberOfCards = questions.length;
 
 //generate cards
 let bookmarksImage = "images/bookmark_white.svg";
 if (document.URL.includes("bookmarks.html")) {
+  numberOfCards = questionsBookmarks.length;
   bookmarksImage = "images/bookmark_black.svg";
 }
 
