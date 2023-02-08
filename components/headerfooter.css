@@ -1,6 +1,9 @@
 header {
   top: 0;
   box-shadow: 0 5px 20px black;
+  background-color: var(--nav-color);
+  justify-content: space-around;
+  color: white;
 }
 
 .front {
@@ -9,18 +12,20 @@ header {
   left: 50%;
   transform: translate(-50%);
   display: flex;
-  justify-content: center;
+
   align-items: center;
   position: fixed;
   z-index: 1;
   width: 90vw;
   height: 80px;
-  background-color: var(--card-color);
 }
 footer {
+  justify-content: center;
   bottom: 0;
   box-shadow: 0 -5px 20px black;
+  background-color: var(--nav-color);
 }
+
 .nav__item {
   height: 78px;
   width: 100px;

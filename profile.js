@@ -11,6 +11,49 @@ const counter2 = document.querySelector('[data-js="counter2"]');
 const darkModeSwitch = document.querySelector('[data-js="dark-mode-switch"]');
 let darkmodeOn = sessionStorage.getItem("darkModeOn");
 
+const darkModeText = document.querySelector('[data-js="darkModeText"]');
+const userName = document.querySelector('[data-js="userName"]');
+
+const englishButton = document.querySelector('[data-js="englishButton"]');
+const germanButton = document.querySelector('[data-js="germanButton"]');
+let currentLanguage = sessionStorage.getItem("currentLanguage");
+const darkModeTextEnglish = "Dark Mode";
+const darkModeTextGerman = "Dunkler Modus";
+
+englishButton.addEventListener("click", () => {
+  currentLanguage = "english";
+  sessionStorage.setItem("currentLanguage", "english");
+  changeLanguageTo(currentLanguage);
+});
+
+germanButton.addEventListener("click", () => {
+  currentLanguage = "german";
+  sessionStorage.setItem("currentLanguage", "german");
+  changeLanguageTo(currentLanguage);
+});
+
+function changeLanguageTo(language) {
+  if (language === "english") {
+    darkModeText.innerText = darkModeTextEnglish;
+    userName.innerText = "User Name";
+    germanButton.style.border = "0";
+    englishButton.style.border = "3px solid black";
+  } else if (language === "german") {
+    userName.innerText = "Benutzername";
+    darkModeText.innerText = darkModeTextGerman;
+    germanButton.style.border = "3px solid black";
+    englishButton.style.border = "0";
+  }
+}
+
+if (currentLanguage != undefined) {
+  changeLanguageTo(currentLanguage);
+} else {
+  currentLanguage = "english";
+  sessionStorage.setItem("currentLanguage", "english");
+  changeLanguageTo("english");
+}
+
 darkModeSwitch.addEventListener("click", () => {
   if (darkmodeOn == "0" || !darkmodeOn) {
     darkModeSwitch.src = "/images/switch_on.gif";

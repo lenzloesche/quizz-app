@@ -10,7 +10,7 @@
   </head>
   <body data-js="body">
     <header class="front" data-js="header">
-      <h1>QUIZ APP</h1>
+      <h1 aria-label="title">QUIZ APP</h1>
     </header>
     <main class="cardcontainer">
       <section class="card profile" data-js="card">
@@ -21,16 +21,26 @@
             height="140px"
             width="140px"
           />
-          <h2 class="hugeletters">User Name</h2>
+          <h2 aria-label="user name" class="hugeletters" data-js="userName">
+            User Name
+          </h2>
         </div>
         <br />
         <div class="flexcolumn">
-          <div class="profile__user profile__counter" data-js="counter1">
+          <div
+            aria-label="question counter"
+            class="profile__user profile__counter"
+            data-js="counter1"
+          >
             <div><h2>Q</h2></div>
             <div><h2>x12</h2></div>
           </div>
 
-          <div class="profile__user profile__counter" data-js="counter2">
+          <div
+            aria-label="bookmark counter"
+            class="profile__user profile__counter"
+            data-js="counter2"
+          >
             <div>
               <img
                 src="/images/bookmark_black.svg"
@@ -45,8 +55,8 @@
           </div>
         </div>
         <br /><br />
-        <div class="profile__switch">
-          <h1>Dark Mode</h1>
+        <div class="profile__switch" aria-label="switch to dark mode">
+          <p data-js="darkModeText" class="profile__text">Dark Mode</p>
           <img
             data-js="dark-mode-switch"
             class="profile__switch-image"
@@ -56,11 +66,28 @@
             alt="switch icon"
           />
         </div>
+        <p class="profile__text profile__text-2">Language/Sprache</p>
+        <div>
+          <button
+            aria-label="English language button"
+            class="profile__language-buttons"
+            data-js="englishButton"
+          >
+            English
+          </button>
+          <button
+            aria-label="Deutsche Sprache Button"
+            class="profile__language-buttons"
+            data-js="germanButton"
+          >
+            Deutsch
+          </button>
+        </div>
       </section>
     </main>
 
     <footer class="front" data-js="footer">
-      <a href="index.html">
+      <a href="index.html" aria-label="link to index.html page">
         <div class="nav__item">
           <img
             src="/images/home_white.svg"
@@ -70,7 +97,7 @@
           />
         </div>
       </a>
-      <a href="bookmarks.html">
+      <a href="bookmarks.html" aria-label="link to bookmarks.html page">
         <div class="nav__item">
           <img
             src="/images/bookmark_white.svg"
@@ -80,7 +107,7 @@
           />
         </div>
       </a>
-      <a href="profile.html">
+      <a href="profile.html" aria-label="link to profile.html page">
         <div data-js="nav__item-selected" class="nav__item nav__item-color">
           <img
             src="/images/user_black.svg"
