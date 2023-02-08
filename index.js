@@ -58,9 +58,21 @@ const answersBookmarksGerman = [
   "Bookmarkantwort 5.",
 ];
 
+const tags = [
+  ["html", "css", "flexbox", "4", "five"],
+  ["html"],
+  ["html", "flexbox"],
+  ["html", "css", "flexbox"],
+  ["html", "css"],
+];
+
 const numberOfCards = 5;
 
 //generate cards
+let bookmarksImage = "images/bookmark_white.svg";
+if (document.URL.includes("bookmarks.html")) {
+  bookmarksImage = "images/bookmark_black.svg";
+}
 
 for (let i = 0; i < numberOfCards; i++) {
   const section = document.createElement("section");
@@ -71,7 +83,7 @@ for (let i = 0; i < numberOfCards; i++) {
   section.setAttribute("data-js", "card");
   section.innerHTML = `
           <img
-            src="images/bookmark_white.svg"
+            src="${bookmarksImage}"
             alt="bookmark icon"
             class="card__bookmark"
           />
@@ -86,10 +98,14 @@ for (let i = 0; i < numberOfCards; i++) {
           <p class="card__answer card__bigtext" data-js="answer">...</p>
   
           <ul class="card__tags">
-            <li data-js="tag" class="card__tag shadow"><p>#html</p></li>
-            <li data-js="tag" class="card__tag shadow"><p>#css</p></li>
-            <li data-js="tag" class="card__tag shadow"><p>#flexbox</p></li>
+            
           </ul>`;
+
+  let innerHTML = "";
+  for (let j = 0; j < tags[i].length; j++) {
+    innerHTML += `<li data-js="tag" class="card__tag shadow"><p>#${tags[i][j]}</p></li>`;
+    section.children[4].innerHTML = innerHTML;
+  }
 }
 
 const answer = document.querySelectorAll('[data-js="answer"]');
