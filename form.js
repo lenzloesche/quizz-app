@@ -11,7 +11,6 @@ form.addEventListener("submit", (event) => {
 
   const formData = new FormData(event.target);
   const dataObject = Object.fromEntries(formData);
-  console.log(dataObject);
 
   const section = document.createElement("section");
   section.classList.add("card");
@@ -41,31 +40,31 @@ form.addEventListener("submit", (event) => {
   answer.textContent = inputAnswer.value;
   section.append(answer);
 
-  const tagList = document.createElement("ul");
-  tagList.classList.add("card__tags");
-  section.append(tagList);
-
+  let tagList = "";
+  if (inputTag1.value || inputTag2.value || inputTag3.value) {
+    tagList = document.createElement("ul");
+    tagList.classList.add("card__tags");
+    section.append(tagList);
+  }
   if (inputTag1.value) {
-    const tag1 = document.createElement("li");
-    tag1.classList.add("card__tag", "shadow");
-    tag1.textContent = "#" + inputTag1.value;
-    tagList.append(tag1);
+    addTagToList(inputTag1, tagList);
   }
 
   if (inputTag2.value) {
-    const tag2 = document.createElement("li");
-    tag2.classList.add("card__tag", "shadow");
-    tag2.textContent = "#" + inputTag2.value;
-    tagList.append(tag2);
+    addTagToList(inputTag2, tagList);
   }
 
   if (inputTag3.value) {
-    const tag3 = document.createElement("li");
-    tag3.classList.add("card__tag", "shadow");
-    tag3.textContent = "#" + inputTag3.value;
-    tagList.append(tag3);
+    addTagToList(inputTag3, tagList);
   }
 });
+
+function addTagToList(inputTag, tagList) {
+  const tag = document.createElement("li");
+  tag.classList.add("card__tag", "shadow");
+  tag.textContent = "#" + inputTag.value;
+  tagList.append(tag);
+}
 
 const counterQuestion = document.querySelector('[data-js="question-counter"]');
 const counterAnswer = document.querySelector('[data-js="answer-counter"]');
