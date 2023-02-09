@@ -66,12 +66,23 @@ const tags = [
   ["tag1", "tag2"],
 ];
 
+const tagsBookmarks = [
+  ["tagb1", "tagb2", "tagb3", "tagb4", "tagb5"],
+  ["tagb1"],
+  ["tagb1", "tagb2"],
+  ["tagb1", "tagb2", "tagb3"],
+  ["tagb1", "tagb2"],
+];
+
+let currentTags = tags;
+
 let numberOfCards = questions.length;
 
 //generate cards
 let bookmarksImage = "images/bookmark_white.svg";
 if (document.URL.includes("bookmarks.html")) {
   numberOfCards = questionsBookmarks.length;
+  currentTags = tagsBookmarks;
   bookmarksImage = "images/bookmark_black.svg";
 }
 
@@ -104,7 +115,7 @@ for (let i = 0; i < numberOfCards; i++) {
 
   let innerHTML = "";
   for (let j = 0; j < tags[i].length; j++) {
-    innerHTML += `<li data-js="tag" class="card__tag shadow"><p>#${tags[i][j]}</p></li>`;
+    innerHTML += `<li data-js="tag" class="card__tag shadow"><p>#${currentTags[i][j]}</p></li>`;
     section.children[4].innerHTML = innerHTML;
   }
 }
