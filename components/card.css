@@ -31,6 +31,7 @@
   align-items: center;
   border: 1px solid black;
   border-radius: 10px;
+  transition: background-color 0.2s linear;
 }
 .card__answer {
   text-align: center;

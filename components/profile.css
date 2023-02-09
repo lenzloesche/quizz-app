@@ -42,6 +42,7 @@
   padding: 5px;
   background-color: var(--card-color);
   padding: 5px 10px;
+  transition: background-color 0.2s linear;
 }
 
 .profile__language-buttons:hover {
