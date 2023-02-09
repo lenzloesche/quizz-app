@@ -98,6 +98,7 @@ for (let i = 0; i < numberOfCards; i++) {
             src="${bookmarksImage}"
             alt="bookmark icon"
             class="card__bookmark"
+            data-js="bookmark"
           />
   
           <p class="card__question card__bigtext" data-js="question" >
@@ -215,4 +216,19 @@ function changeTheme() {
 }
 if (darkmodeOn == "1") {
   changeTheme();
+}
+
+const bookmarks = document.querySelectorAll('[data-js="bookmark"]');
+const bookmarked = [false, false, false, false, false];
+
+for (let i = 0; i < bookmarks.length; i++) {
+  bookmarks[i].addEventListener("click", () => {
+    if (bookmarked[i] === true) {
+      bookmarked[i] = false;
+      bookmarks[i].src = "images/bookmark_white.svg";
+    } else {
+      bookmarked[i] = true;
+      bookmarks[i].src = "images/bookmark_black.svg";
+    }
+  });
 }
