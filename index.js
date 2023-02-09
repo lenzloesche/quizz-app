@@ -75,12 +75,13 @@ const tagsBookmarks = [
 ];
 const isAnswerShown = [true, true, true, true, true];
 let currentTags = tags;
-
+let bookmarked = [false, false, false, false, false];
 let numberOfCards = questions.length;
 
 //generate cards
 let bookmarksImage = "images/bookmark_white.svg";
 if (document.URL.includes("bookmarks.html")) {
+  bookmarked = [true, true, true, true, true];
   numberOfCards = questionsBookmarks.length;
   currentTags = tagsBookmarks;
   bookmarksImage = "images/bookmark_black.svg";
@@ -227,7 +228,6 @@ if (darkmodeOn == "1") {
 }
 
 const bookmarks = document.querySelectorAll('[data-js="bookmark"]');
-const bookmarked = [false, false, false, false, false];
 
 for (let i = 0; i < bookmarks.length; i++) {
   bookmarks[i].addEventListener("click", () => {
