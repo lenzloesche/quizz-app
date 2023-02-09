@@ -27,7 +27,7 @@ const answersBookmarks = [
   "bookmark answer 4",
   "bookmark answer 5.",
 ];
-let answerOutput = [];
+let answerOutput = answersIndex;
 
 const questionsGerman = [
   "Frage 1?",
@@ -73,7 +73,7 @@ const tagsBookmarks = [
   ["tagb1", "tagb2", "tagb3"],
   ["tagb1", "tagb2"],
 ];
-
+const isAnswerShown = [true, true, true, true, true];
 let currentTags = tags;
 
 let numberOfCards = questions.length;
@@ -177,23 +177,31 @@ changeLanguageTo(currentLanguage);
 
 for (let i = 0; i < numberOfCards; i++) {
   show_answer[i].addEventListener("click", () => {
-    answer[i].innerText =
-      answer[i].innerText === "..." ? answerOutput[i] : "...";
     changeHideAndShowAnswer(i);
   });
 }
 
 function changeHideAndShowAnswer(position) {
   if (currentLanguage === "english") {
-    show_answer[position].children[0].innerHTML =
-      show_answer[position].children[0].innerHTML === "Show answer."
-        ? "Hide answer."
-        : "Show answer.";
+    if (isAnswerShown[position] === true) {
+      answer[position].innerText = "...";
+      show_answer[position].children[0].textContent = "Show answer.";
+      isAnswerShown[position] = false;
+    } else {
+      answer[position].innerText = answerOutput[position];
+      show_answer[position].children[0].textContent = "Hide answer.";
+      isAnswerShown[position] = true;
+    }
   } else if (currentLanguage === "german") {
-    show_answer[position].children[0].innerHTML =
-      show_answer[position].children[0].innerHTML === "Zeige Antwort."
-        ? "Verberge Antwort."
-        : "Zeige Antwort.";
+    if (isAnswerShown[position] === true) {
+      answer[position].innerText = "...";
+      show_answer[position].children[0].textContent = "Zeige Antwort.";
+      isAnswerShown[position] = false;
+    } else {
+      answer[position].innerText = answerOutput[position];
+      show_answer[position].children[0].textContent = "Verberge Antwort.";
+      isAnswerShown[position] = true;
+    }
   }
 }
 
