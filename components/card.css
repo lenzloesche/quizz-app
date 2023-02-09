@@ -52,10 +52,18 @@
   width: 60px;
   right: 20px;
   top: -20px;
+  transition: 0.2s linear;
 }
 .card__bookmark:hover {
   cursor: pointer;
   content: url(../images/bookmark_black.svg);
+}
+
+.card__bookmark-big {
+  height: 80px;
+  width: 80px;
+  right: 10px;
+  top: -30px;
 }
 
 .card__tags {
@@ -98,7 +106,6 @@
   animation: writing 2s steps(40, end);
 }
 
-/* The typing effect */
 @keyframes writing {
   from {
     width: 0;
