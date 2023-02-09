@@ -5,15 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <script src="index.js" defer></script>
-    <title>Lenz' Quiz App - Bookmarks</title>
+    <script src="form.js" defer></script>
+    <title>Lenz' Quiz App - Add Card</title>
   </head>
   <body data-js="body">
     <header class="front" data-js="header">
       <h1 aria-label="title">QUIZ APP</h1>
     </header>
+    <main class="cardcontainer">
+      <section class="card" data-js="card">
+        <form action="" class="form">
+          <label for="question" class="form__label">Question: </label>
+          <textarea name="question" id="question" class="input"></textarea>
+          <label for="answer" class="form__label">Answer: </label>
+          <textarea name="answer" id="answer" class="input"></textarea>
+          <label for="tag" class="form__label">Tags: </label>
+          <input type="text" name="tag" id="tag" class="input" />
+          <button class="input" type="submit">Add Card</button>
+        </form>
+      </section>
+    </main>
 
-    <main class="cardcontainer" data-js="main"></main>
     <footer class="front" data-js="footer">
       <a href="index.html" aria-label="link to index.html page">
         <div class="nav__item">
@@ -26,17 +38,17 @@
         </div>
       </a>
       <a href="bookmarks.html" aria-label="link to bookmarks.html page">
-        <div data-js="nav__item-selected" class="nav__item nav__item-color">
+        <div class="nav__item">
           <img
-            src="/images/bookmark_black.svg"
+            src="/images/bookmark_white.svg"
             alt="bookmark icon"
             height="70px"
             width="70px"
           />
         </div>
       </a>
-      <a href="form.html" aria-label="link to form.html page">
-        <div class="nav__item">
+      <a href="add.html" aria-label="link to add.html page">
+        <div data-js="nav__item-selected" class="nav__item nav__item-color">
           <img
             src="/images/add.svg"
             alt="add icon"
@@ -48,7 +60,7 @@
       <a href="profile.html" aria-label="link to profile.html page">
         <div class="nav__item">
           <img
-            src="/images/user_white.svg"
+            src="/images/user_black.svg"
             alt="user icon"
             height="70px"
             width="70px"
