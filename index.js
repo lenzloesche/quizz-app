@@ -59,7 +59,7 @@ const answersBookmarksGerman = [
 ];
 
 const tags = [
-  ["tag1", "tag2", "tag3", "tag4", "tag5"],
+  ["tag1", "tag2", "tag3"],
   ["tag1"],
   ["tag1", "tag2"],
   ["tag1", "tag2", "tag3"],
@@ -67,7 +67,7 @@ const tags = [
 ];
 
 const tagsBookmarks = [
-  ["tagb1", "tagb2", "tagb3", "tagb4", "tagb5"],
+  ["tag1", "tag2", "tag3"],
   ["tagb1"],
   ["tagb1", "tagb2"],
   ["tagb1", "tagb2", "tagb3"],
@@ -116,7 +116,7 @@ for (let i = 0; i < numberOfCards; i++) {
           </ul>`;
 
   let innerHTML = "";
-  for (let j = 0; j < tags[i].length; j++) {
+  for (let j = 0; j < currentTags[i].length; j++) {
     innerHTML += `<li data-js="tag" class="card__tag shadow"><p>#${currentTags[i][j]}</p></li>`;
     section.children[4].innerHTML = innerHTML;
   }
