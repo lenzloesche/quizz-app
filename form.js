@@ -66,3 +66,15 @@ form.addEventListener("submit", (event) => {
     tagList.append(tag3);
   }
 });
+
+const counterQuestion = document.querySelector('[data-js="question-counter"]');
+const counterAnswer = document.querySelector('[data-js="answer-counter"]');
+
+inputQuestion.addEventListener("input", (event) => {
+  const lettersleft = 150 - Number(event.target.value.length);
+  counterQuestion.textContent = lettersleft + " characters left.";
+});
+inputAnswer.addEventListener("input", (event) => {
+  const lettersleft = 150 - Number(event.target.value.length);
+  counterAnswer.textContent = lettersleft + " characters left.";
+});
