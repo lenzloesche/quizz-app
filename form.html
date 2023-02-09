@@ -12,16 +12,48 @@
     <header class="front" data-js="header">
       <h1 aria-label="title">QUIZ APP</h1>
     </header>
-    <main class="cardcontainer">
+    <main class="cardcontainer" data-js="main">
       <section class="card" data-js="card">
-        <form action="" class="form">
+        <form action="" class="form" data-js="form">
           <label for="question" class="form__label">Question: </label>
-          <textarea name="question" id="question" class="input"></textarea>
+          <textarea
+            name="question"
+            id="question"
+            class="input"
+            data-js="question"
+          ></textarea>
           <label for="answer" class="form__label">Answer: </label>
-          <textarea name="answer" id="answer" class="input"></textarea>
-          <label for="tag" class="form__label">Tags: </label>
-          <input type="text" name="tag" id="tag" class="input" />
-          <button class="input" type="submit">Add Card</button>
+          <textarea
+            name="answer"
+            id="answer"
+            class="input"
+            data-js="answer"
+          ></textarea>
+          <label for="tag1" class="form__label">Tag 1: </label>
+          <input
+            type="text"
+            name="tag1"
+            id="tag1"
+            class="input"
+            data-js="tag1"
+          />
+          <label for="tag2" class="form__label">Tag 2: </label>
+          <input
+            type="text"
+            name="tag2"
+            id="tag2"
+            class="input"
+            data-js="tag2"
+          />
+          <label for="tag3" class="form__label">Tag 3: </label>
+          <input
+            type="text"
+            name="tag3"
+            id="tag3"
+            class="input"
+            data-js="tag3"
+          />
+          <button data-js="button" class="input" type="submit">Add Card</button>
         </form>
       </section>
     </main>
