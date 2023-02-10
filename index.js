@@ -73,21 +73,39 @@ const tagsBookmarks = [
   ["tagb1", "tagb2", "tagb3"],
   ["tagb1", "tagb2"],
 ];
+
+//let bookmarked = sessionStorage.getItem("bookmarked");
+
+let bookmarked = [false, false, false, false, false];
+
+if (sessionStorage.getItem("bookmarked") != null) {
+  bookmarked = JSON.parse(sessionStorage.getItem("bookmarked"));
+}
+
 const isAnswerShown = [true, true, true, true, true];
 let currentTags = tags;
-let bookmarked = [false, false, false, false, false];
 let numberOfCards = questions.length;
 
 //generate cards
-let bookmarksImage = "images/bookmark_white.svg";
+let bookmarksImage = [
+  "images/bookmark_white.svg",
+  "images/bookmark_white.svg",
+  "images/bookmark_white.svg",
+  "images/bookmark_white.svg",
+  "images/bookmark_white.svg",
+];
+
 if (document.URL.includes("bookmarks.html")) {
-  bookmarked = [true, true, true, true, true];
   numberOfCards = questionsBookmarks.length;
   currentTags = tagsBookmarks;
-  bookmarksImage = "images/bookmark_black.svg";
+  //bookmarksImage = "images/bookmark_black.svg";
 }
 
 for (let i = 0; i < numberOfCards; i++) {
+  if (bookmarked[i] === true) {
+    bookmarksImage[i] = "images/bookmark_black.svg";
+  }
+
   const section = document.createElement("section");
   const main = document.querySelector('[data-js="main"]');
   main.append(section);
@@ -96,7 +114,7 @@ for (let i = 0; i < numberOfCards; i++) {
   section.setAttribute("data-js", "card");
   section.innerHTML = `
           <img
-            src="${bookmarksImage}"
+            src="${bookmarksImage[i]}"
             alt="bookmark icon"
             class="card__bookmark"
             data-js="bookmark"
@@ -233,10 +251,12 @@ for (let i = 0; i < bookmarks.length; i++) {
   bookmarks[i].addEventListener("click", () => {
     if (bookmarked[i] === true) {
       bookmarked[i] = false;
+
       bookmarks[i].src = "images/bookmark_white.svg";
     } else {
       bookmarked[i] = true;
       bookmarks[i].src = "images/bookmark_black.svg";
     }
+    sessionStorage.setItem("bookmarked", JSON.stringify(bookmarked));
   });
 }
