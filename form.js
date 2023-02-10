@@ -57,6 +57,7 @@ form.addEventListener("submit", (event) => {
   if (inputTag3.value) {
     addTagToList(inputTag3, tagList);
   }
+  event.target.reset();
 });
 
 function addTagToList(inputTag, tagList) {
