@@ -74,8 +74,6 @@ const tagsBookmarks = [
   ["tagb1", "tagb2"],
 ];
 
-//let bookmarked = sessionStorage.getItem("bookmarked");
-
 let bookmarked = [false, false, false, false, false];
 
 if (sessionStorage.getItem("bookmarked") != null) {
@@ -86,7 +84,6 @@ const isAnswerShown = [true, true, true, true, true];
 let currentTags = tags;
 let numberOfCards = questions.length;
 
-//generate cards
 let bookmarksImage = [
   "images/bookmark_white.svg",
   "images/bookmark_white.svg",
@@ -98,7 +95,6 @@ let bookmarksImage = [
 if (document.URL.includes("bookmarks.html")) {
   numberOfCards = questionsBookmarks.length;
   currentTags = tagsBookmarks;
-  //bookmarksImage = "images/bookmark_black.svg";
 }
 
 for (let i = 0; i < numberOfCards; i++) {
@@ -109,7 +105,9 @@ for (let i = 0; i < numberOfCards; i++) {
   const section = document.createElement("section");
   const main = document.querySelector('[data-js="main"]');
   main.append(section);
-
+  if (document.URL.includes("bookmarks.html") && bookmarked[i] === false) {
+    section.classList.add("display-none");
+  }
   section.classList.add("card");
   section.setAttribute("data-js", "card");
   section.innerHTML = `
@@ -251,8 +249,8 @@ for (let i = 0; i < bookmarks.length; i++) {
   bookmarks[i].addEventListener("click", () => {
     if (bookmarked[i] === true) {
       bookmarked[i] = false;
-
       bookmarks[i].src = "images/bookmark_white.svg";
+      card[i].classList.add("display-none");
     } else {
       bookmarked[i] = true;
       bookmarks[i].src = "images/bookmark_black.svg";

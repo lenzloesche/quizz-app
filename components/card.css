@@ -91,3 +91,6 @@
     width: 500px;
   }
 }
+.display-none {
+  display: none;
+}
