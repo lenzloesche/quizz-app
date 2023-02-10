@@ -198,14 +198,24 @@ const bookmarks = document.querySelectorAll('[data-js="bookmark"]');
 
 for (let i = 0; i < bookmarks.length; i++) {
   bookmarks[i].addEventListener("click", () => {
-    if (bookmarked[i] === true) {
-      bookmarked[i] = false;
-      bookmarks[i].src = "images/bookmark_white.svg";
-      card[i].classList.add("display-none");
-    } else {
-      bookmarked[i] = true;
-      bookmarks[i].src = "images/bookmark_black.svg";
+    if (!card[i].classList.contains("card-dissapear")) {
+      if (bookmarked[i] === true) {
+        bookmarked[i] = false;
+        bookmarks[i].src = "images/bookmark_white.svg";
+
+        if (document.URL.includes("bookmarks.html")) {
+          card[i].classList.add("card-dissapear");
+          let timeoutId = setTimeout(hideCard, 1000, i);
+        }
+      } else {
+        bookmarked[i] = true;
+        bookmarks[i].src = "images/bookmark_black.svg";
+      }
+      sessionStorage.setItem("bookmarked", JSON.stringify(bookmarked));
     }
-    sessionStorage.setItem("bookmarked", JSON.stringify(bookmarked));
   });
+}
+
+function hideCard(i) {
+  card[i].classList.add("display-none");
 }
