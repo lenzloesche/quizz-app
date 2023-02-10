@@ -16,7 +16,6 @@
   position: relative;
 
   transition: opacity 1s linear;
-  transition: 1s linear;
   opacity: 100%;
 }
 
