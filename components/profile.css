@@ -29,9 +29,13 @@
 .profile__text-2 {
   margin-bottom: 20px;
 }
-
+.profile__switch-image {
+  transition: 0.2s linear;
+}
 .profile__switch-image:hover {
   cursor: pointer;
+  width: 80px;
+  height: 80px;
 }
 
 .profile__language-buttons {
@@ -42,6 +46,7 @@
   padding: 5px;
   background-color: var(--card-color);
   padding: 5px 10px;
+  transition: background-color 0.2s linear;
 }
 
 .profile__language-buttons:hover {

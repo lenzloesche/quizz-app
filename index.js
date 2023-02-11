@@ -121,7 +121,7 @@ for (let i = 0; i < numberOfCards; i++) {
     section.children[4].innerHTML = innerHTML;
   }
 }
-
+const bookmarks = document.querySelectorAll('[data-js="bookmark"]');
 const answer = document.querySelectorAll('[data-js="answer"]');
 
 const body = document.querySelector('[data-js="body"]');
@@ -158,6 +158,9 @@ for (let i = 0; i < numberOfCards; i++) {
 }
 
 if (document.URL.includes("bookmarks.html")) {
+  for (let i = 0; i < numberOfCards; i++) {
+    bookmarks[i].classList.add("card__bookmark-big");
+  }
   if (currentLanguage === "english") {
     answerOutput = answersBookmarks;
     questionsOutput = questionsBookmarks;
@@ -186,20 +189,26 @@ function changeHideAndShowAnswer(position) {
   if (currentLanguage === "english") {
     if (isAnswerShown[position] === true) {
       answer[position].innerText = "...";
+      answer[position].classList.remove("card__answer--animation");
+
       show_answer[position].children[0].textContent = "Show answer.";
       isAnswerShown[position] = false;
     } else {
       answer[position].innerText = answerOutput[position];
+      answer[position].classList.add("card__answer--animation");
+
       show_answer[position].children[0].textContent = "Hide answer.";
       isAnswerShown[position] = true;
     }
   } else if (currentLanguage === "german") {
     if (isAnswerShown[position] === true) {
       answer[position].innerText = "...";
+      answer[position].classList.remove("card__answer--animation");
       show_answer[position].children[0].textContent = "Zeige Antwort.";
       isAnswerShown[position] = false;
     } else {
       answer[position].innerText = answerOutput[position];
+      answer[position].classList.add("card__answer--animation");
       show_answer[position].children[0].textContent = "Verberge Antwort.";
       isAnswerShown[position] = true;
     }
@@ -227,16 +236,16 @@ if (darkmodeOn == "1") {
   changeTheme();
 }
 
-const bookmarks = document.querySelectorAll('[data-js="bookmark"]');
-
 for (let i = 0; i < bookmarks.length; i++) {
   bookmarks[i].addEventListener("click", () => {
     if (bookmarked[i] === true) {
       bookmarked[i] = false;
       bookmarks[i].src = "images/bookmark_white.svg";
+      bookmarks[i].classList.remove("card__bookmark-big");
     } else {
       bookmarked[i] = true;
       bookmarks[i].src = "images/bookmark_black.svg";
+      bookmarks[i].classList.add("card__bookmark-big");
     }
   });
 }
