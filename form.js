@@ -118,6 +118,9 @@ function getSaved() {
     tags = JSON.parse(sessionStorage.getItem("tags"));
     bookmarked = JSON.parse(sessionStorage.getItem("bookmarked"));
   }
+  if (sessionStorage.getItem("bookmarked") != null) {
+    bookmarked = JSON.parse(sessionStorage.getItem("bookmarked"));
+  }
 }
 
 function addNewCardToVariables() {
