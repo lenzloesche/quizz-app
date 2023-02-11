@@ -125,7 +125,6 @@ function getSaved() {
 
 function addNewCardToVariables() {
   questions.push(inputQuestion.value);
-  console.log(inputAnswer.value + " " + answers);
   answers.push(inputAnswer.value);
   questionsGerman.push(inputQuestion.value);
   answersGerman.push(inputAnswer.value);

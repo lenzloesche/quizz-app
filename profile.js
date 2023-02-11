@@ -28,7 +28,7 @@ const bookmarkString = document.querySelector('[data-js="bookmarkString"]');
 if (questions != null) {
   questionString.textContent = "x" + questions.length;
 }
-console.log(bookmarked);
+
 if (bookmarked != null) {
   let counter = 0;
   for (const item of bookmarked) {
