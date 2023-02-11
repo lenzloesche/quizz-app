@@ -75,6 +75,8 @@ function changeTheme() {
   navItemSelected.classList.toggle("nav--dark-mode");
   counter1.classList.toggle("card--dark-mode");
   counter2.classList.toggle("card--dark-mode");
+  englishButton.classList.toggle("card--dark-mode");
+  germanButton.classList.toggle("card--dark-mode");
 }
 if (darkmodeOn == "1") {
   changeTheme();

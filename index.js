@@ -198,6 +198,9 @@ function changeTheme() {
   tag.forEach(function (element) {
     element.classList.toggle("card--dark-mode");
   });
+  answer.forEach(function (element) {
+    element.classList.toggle("card--dark-mode");
+  });
 
   header.classList.toggle("card--dark-mode");
   footer.classList.toggle("card--dark-mode");

@@ -52,4 +52,5 @@
 .profile__language-buttons:hover {
   background-color: var(--hover-color);
   cursor: pointer;
+  color: black;
 }

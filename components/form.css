@@ -25,6 +25,7 @@ button.input {
 button.input:hover {
   background-color: var(--hover-color);
   cursor: pointer;
+  color: black;
 }
 .counter {
   text-align: right;
