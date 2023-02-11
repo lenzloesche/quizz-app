@@ -34,13 +34,13 @@
   align-items: center;
   border: 1px solid black;
   border-radius: 10px;
+  transition: background-color 0.2s linear;
 }
 .card__answer {
   text-align: center;
   margin-bottom: 20px;
   font-weight: bolder;
-  border: 3px solid black;
-  border-radius: 10px;
+
   background-color: var(--answer-color);
 }
 
@@ -55,10 +55,18 @@
   width: 60px;
   right: 20px;
   top: -20px;
+  transition: 0.2s linear;
 }
 .card__bookmark:hover {
   cursor: pointer;
   content: url(../images/bookmark_black.svg);
+}
+
+.card__bookmark-big {
+  height: 80px;
+  width: 80px;
+  right: 10px;
+  top: -30px;
 }
 
 .card__tags {
@@ -100,4 +108,19 @@
 
 .card-dissapear {
   opacity: 0%;
+}
+
+.card__answer--animation {
+  white-space: nowrap;
+  overflow: hidden;
+  animation: writing 2s steps(40, end);
+}
+
+@keyframes writing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }

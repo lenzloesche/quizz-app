@@ -18,6 +18,10 @@
   font-size: 26px;
 }
 
+button.input {
+  transition: background-color 0ss linear;
+}
+
 button.input:hover {
   background-color: var(--hover-color);
   cursor: pointer;
