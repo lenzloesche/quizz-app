@@ -6,6 +6,42 @@ const inputTag1 = document.querySelector('[data-js="tag1"]');
 const inputTag2 = document.querySelector('[data-js="tag2"]');
 const inputTag3 = document.querySelector('[data-js="tag3"]');
 
+let questions = [
+  "question 1?",
+  "question 2?",
+  "question 3?",
+  "question 4?",
+  "question 5?",
+];
+
+let answers = ["answer 1.", "answer 2.", "answer 3", "answer 4", "answer 5"];
+
+let questionsGerman = [
+  "Frage 1?",
+  "Frage 2?",
+  "Frage 3?",
+  "Frage 4?",
+  "Frage 5?",
+];
+
+let answersGerman = [
+  "Antwort 1.",
+  "Antwort 2.",
+  "Antwort 3.",
+  "Antwort 4.",
+  "Antwort 5.",
+];
+
+let tags = [
+  ["tag1", "tag2", "tag3"],
+  ["tag1"],
+  ["tag1", "tag2"],
+  ["tag1", "tag2", "tag3"],
+  ["tag1", "tag2"],
+];
+
+let bookmarked = [false, false, false, false, false];
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -57,8 +93,41 @@ form.addEventListener("submit", (event) => {
   if (inputTag3.value) {
     addTagToList(inputTag3, tagList);
   }
+  getSaved();
+  addNewCardToVariables();
+  saveCard();
   event.target.reset();
 });
+
+function getSaved() {
+  if (sessionStorage.getItem("questions") != null) {
+    questions = JSON.parse(sessionStorage.getItem("questions"));
+    questionsGerman = JSON.parse(sessionStorage.getItem("questionsGerman"));
+    answers = JSON.parse(sessionStorage.getItem("answers"));
+    answersGerman = JSON.parse(sessionStorage.getItem("answersGerman"));
+    tags = JSON.parse(sessionStorage.getItem("tags"));
+    bookmarked = JSON.parse(sessionStorage.getItem("bookmarked"));
+  }
+}
+
+function addNewCardToVariables() {
+  questions.push(inputQuestion.value);
+  console.log(inputAnswer.value + " " + answers);
+  answers.push(inputAnswer.value);
+  questionsGerman.push(inputQuestion.value);
+  answersGerman.push(inputAnswer.value);
+  tags.push([inputTag1.value, inputTag2.value, inputTag3.value]);
+  bookmarked.push(false);
+}
+
+function saveCard() {
+  sessionStorage.setItem("questions", JSON.stringify(questions));
+  sessionStorage.setItem("questionsGerman", JSON.stringify(questionsGerman));
+  sessionStorage.setItem("answers", JSON.stringify(answers));
+  sessionStorage.setItem("answersGerman", JSON.stringify(answersGerman));
+  sessionStorage.setItem("tags", JSON.stringify(tags));
+  sessionStorage.setItem("bookmarked", JSON.stringify(bookmarked));
+}
 
 function addTagToList(inputTag, tagList) {
   const tag = document.createElement("li");
