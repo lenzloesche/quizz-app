@@ -170,13 +170,11 @@ function changeHideAndShowAnswer(position) {
   if (currentLanguage === "english") {
     if (isAnswerShown[position] === true) {
       answer[position].innerText = "...";
-      answer[position].classList.remove("card__answer--animation");
 
       show_answer[position].children[0].textContent = "Show answer.";
       isAnswerShown[position] = false;
     } else {
       answer[position].innerText = answerOutput[position];
-      answer[position].classList.add("card__answer--animation");
 
       show_answer[position].children[0].textContent = "Hide answer.";
       isAnswerShown[position] = true;
@@ -184,12 +182,10 @@ function changeHideAndShowAnswer(position) {
   } else if (currentLanguage === "german") {
     if (isAnswerShown[position] === true) {
       answer[position].innerText = "...";
-      answer[position].classList.remove("card__answer--animation");
       show_answer[position].children[0].textContent = "Zeige Antwort.";
       isAnswerShown[position] = false;
     } else {
       answer[position].innerText = answerOutput[position];
-      answer[position].classList.add("card__answer--animation");
       show_answer[position].children[0].textContent = "Verberge Antwort.";
       isAnswerShown[position] = true;
     }
