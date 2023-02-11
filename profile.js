@@ -20,6 +20,26 @@ let currentLanguage = sessionStorage.getItem("currentLanguage");
 const darkModeTextEnglish = "Dark Mode";
 const darkModeTextGerman = "Dunkler Modus";
 
+bookmarked = JSON.parse(sessionStorage.getItem("bookmarked"));
+questions = JSON.parse(sessionStorage.getItem("questions"));
+const questionString = document.querySelector('[data-js="questionString"]');
+const bookmarkString = document.querySelector('[data-js="bookmarkString"]');
+
+if (questions != null) {
+  questionString.textContent = "x" + questions.length;
+}
+console.log(bookmarked);
+if (bookmarked != null) {
+  let counter = 0;
+  for (const item of bookmarked) {
+    if (item === true) {
+      counter++;
+    }
+  }
+
+  bookmarkString.textContent = "x" + counter;
+}
+
 englishButton.addEventListener("click", () => {
   currentLanguage = "english";
   sessionStorage.setItem("currentLanguage", "english");
