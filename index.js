@@ -1,4 +1,4 @@
-const questions = [
+let questions = [
   "question 1?",
   "question 2?",
   "question 3?",
@@ -6,7 +6,7 @@ const questions = [
   "question 5?",
 ];
 
-const answersIndex = [
+let answersIndex = [
   "answer 1.",
   "answer 2.",
   "answer 3",
@@ -14,9 +14,7 @@ const answersIndex = [
   "answer 5",
 ];
 
-let answerOutput = answersIndex;
-
-const questionsGerman = [
+let questionsGerman = [
   "Frage 1?",
   "Frage 2?",
   "Frage 3?",
@@ -24,7 +22,7 @@ const questionsGerman = [
   "Frage 5?",
 ];
 
-const answersIndexGerman = [
+let answersIndexGerman = [
   "Antwort 1.",
   "Antwort 2.",
   "Antwort 3.",
@@ -32,7 +30,7 @@ const answersIndexGerman = [
   "Antwort 5.",
 ];
 
-const tags = [
+let tags = [
   ["tag1", "tag2", "tag3"],
   ["tag1"],
   ["tag1", "tag2"],
@@ -46,17 +44,28 @@ if (sessionStorage.getItem("bookmarked") != null) {
   bookmarked = JSON.parse(sessionStorage.getItem("bookmarked"));
 }
 
-const isAnswerShown = [true, true, true, true, true];
+getSaved();
+function getSaved() {
+  if (sessionStorage.getItem("questions") != null) {
+    questions = JSON.parse(sessionStorage.getItem("questions"));
+    questionsGerman = JSON.parse(sessionStorage.getItem("questionsGerman"));
+    answersIndex = JSON.parse(sessionStorage.getItem("answers"));
+    answersIndexGerman = JSON.parse(sessionStorage.getItem("answersGerman"));
+    tags = JSON.parse(sessionStorage.getItem("tags"));
+  }
+}
+
+let bookmarksImage = [];
+const isAnswerShown = [];
+for (const bookmark of bookmarked) {
+  bookmarksImage.push("images/bookmark_white.svg");
+  isAnswerShown.push(true);
+}
+
+let answerOutput = answersIndex;
+
 let currentTags = tags;
 let numberOfCards = questions.length;
-
-let bookmarksImage = [
-  "images/bookmark_white.svg",
-  "images/bookmark_white.svg",
-  "images/bookmark_white.svg",
-  "images/bookmark_white.svg",
-  "images/bookmark_white.svg",
-];
 
 for (let i = 0; i < numberOfCards; i++) {
   if (bookmarked[i] === true) {
@@ -94,7 +103,9 @@ for (let i = 0; i < numberOfCards; i++) {
 
   let innerHTML = "";
   for (let j = 0; j < currentTags[i].length; j++) {
-    innerHTML += `<li data-js="tag" class="card__tag shadow"><p>#${currentTags[i][j]}</p></li>`;
+    if (currentTags[i][j] != "") {
+      innerHTML += `<li data-js="tag" class="card__tag shadow"><p>#${currentTags[i][j]}</p></li>`;
+    }
     section.children[4].innerHTML = innerHTML;
   }
 }
