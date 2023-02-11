@@ -14,6 +14,9 @@
   box-shadow: 0 0 20px black;
   border-radius: 20px;
   position: relative;
+
+  transition: opacity 1s linear;
+  opacity: 100%;
 }
 
 .card__question {
@@ -98,6 +101,13 @@
   .card {
     width: 500px;
   }
+}
+.display-none {
+  display: none;
+}
+
+.card-dissapear {
+  opacity: 0%;
 }
 
 .card__answer--animation {

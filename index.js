@@ -5,13 +5,6 @@ const questions = [
   "question 4?",
   "question 5?",
 ];
-const questionsBookmarks = [
-  "question bookmarks 1?",
-  "question bookmarks 2?",
-  "question bookmarks 3?",
-  "question bookmarks 4?",
-  "question bookmarks 5?",
-];
 
 const answersIndex = [
   "answer 1.",
@@ -20,13 +13,7 @@ const answersIndex = [
   "answer 4",
   "answer 5",
 ];
-const answersBookmarks = [
-  "bookmark answer 1.",
-  "bookmark answer 2",
-  "bookmark answer 3",
-  "bookmark answer 4",
-  "bookmark answer 5.",
-];
+
 let answerOutput = answersIndex;
 
 const questionsGerman = [
@@ -36,26 +23,13 @@ const questionsGerman = [
   "Frage 4?",
   "Frage 5?",
 ];
-const questionsBookmarksGerman = [
-  "Frage Bookmarks 1?",
-  "Frage Bookmarks 2?",
-  "Frage Bookmarks 3?",
-  "Frage Bookmarks 4?",
-  "Frage Bookmarks 5?",
-];
+
 const answersIndexGerman = [
   "Antwort 1.",
   "Antwort 2.",
   "Antwort 3.",
   "Antwort 4.",
   "Antwort 5.",
-];
-const answersBookmarksGerman = [
-  "Bookmarkantwort 1.",
-  "Bookmarkantwort 2.",
-  "Bookmarkantwort 3.",
-  "Bookmarkantwort 4.",
-  "Bookmarkantwort 5.",
 ];
 
 const tags = [
@@ -66,37 +40,40 @@ const tags = [
   ["tag1", "tag2"],
 ];
 
-const tagsBookmarks = [
-  ["tag1", "tag2", "tag3"],
-  ["tagb1"],
-  ["tagb1", "tagb2"],
-  ["tagb1", "tagb2", "tagb3"],
-  ["tagb1", "tagb2"],
-];
-const isAnswerShown = [true, true, true, true, true];
-let currentTags = tags;
 let bookmarked = [false, false, false, false, false];
-let numberOfCards = questions.length;
 
-//generate cards
-let bookmarksImage = "images/bookmark_white.svg";
-if (document.URL.includes("bookmarks.html")) {
-  bookmarked = [true, true, true, true, true];
-  numberOfCards = questionsBookmarks.length;
-  currentTags = tagsBookmarks;
-  bookmarksImage = "images/bookmark_black.svg";
+if (sessionStorage.getItem("bookmarked") != null) {
+  bookmarked = JSON.parse(sessionStorage.getItem("bookmarked"));
 }
 
+const isAnswerShown = [true, true, true, true, true];
+let currentTags = tags;
+let numberOfCards = questions.length;
+
+let bookmarksImage = [
+  "images/bookmark_white.svg",
+  "images/bookmark_white.svg",
+  "images/bookmark_white.svg",
+  "images/bookmark_white.svg",
+  "images/bookmark_white.svg",
+];
+
 for (let i = 0; i < numberOfCards; i++) {
+  if (bookmarked[i] === true) {
+    bookmarksImage[i] = "images/bookmark_black.svg";
+  }
+
   const section = document.createElement("section");
   const main = document.querySelector('[data-js="main"]');
   main.append(section);
-
+  if (document.URL.includes("bookmarks.html") && bookmarked[i] === false) {
+    section.classList.add("display-none");
+  }
   section.classList.add("card");
   section.setAttribute("data-js", "card");
   section.innerHTML = `
           <img
-            src="${bookmarksImage}"
+            src="${bookmarksImage[i]}"
             alt="bookmark icon"
             class="card__bookmark"
             data-js="bookmark"
@@ -157,26 +134,19 @@ for (let i = 0; i < numberOfCards; i++) {
   changeHideAndShowAnswer(i);
 }
 
+if (currentLanguage === "english") {
+  answerOutput = answersIndex;
+  questionsOutput = questions;
+} else if (currentLanguage === "german") {
+  answerOutput = answersIndexGerman;
+  questionsOutput = questionsGerman;
+}
 if (document.URL.includes("bookmarks.html")) {
   for (let i = 0; i < numberOfCards; i++) {
     bookmarks[i].classList.add("card__bookmark-big");
   }
-  if (currentLanguage === "english") {
-    answerOutput = answersBookmarks;
-    questionsOutput = questionsBookmarks;
-  } else if (currentLanguage === "german") {
-    answerOutput = answersBookmarksGerman;
-    questionsOutput = questionsBookmarksGerman;
-  }
-} else {
-  if (currentLanguage === "english") {
-    answerOutput = answersIndex;
-    questionsOutput = questions;
-  } else if (currentLanguage === "german") {
-    answerOutput = answersIndexGerman;
-    questionsOutput = questionsGerman;
-  }
 }
+
 changeLanguageTo(currentLanguage);
 
 for (let i = 0; i < numberOfCards; i++) {
@@ -238,14 +208,25 @@ if (darkmodeOn == "1") {
 
 for (let i = 0; i < bookmarks.length; i++) {
   bookmarks[i].addEventListener("click", () => {
-    if (bookmarked[i] === true) {
-      bookmarked[i] = false;
-      bookmarks[i].src = "images/bookmark_white.svg";
-      bookmarks[i].classList.remove("card__bookmark-big");
-    } else {
-      bookmarked[i] = true;
-      bookmarks[i].src = "images/bookmark_black.svg";
-      bookmarks[i].classList.add("card__bookmark-big");
+    if (!card[i].classList.contains("card-dissapear")) {
+      if (bookmarked[i] === true) {
+        bookmarked[i] = false;
+        bookmarks[i].src = "images/bookmark_white.svg";
+        bookmarks[i].classList.remove("card__bookmark-big");
+        if (document.URL.includes("bookmarks.html")) {
+          card[i].classList.add("card-dissapear");
+          let timeoutId = setTimeout(hideCard, 1000, i);
+        }
+      } else {
+        bookmarked[i] = true;
+        bookmarks[i].src = "images/bookmark_black.svg";
+        bookmarks[i].classList.add("card__bookmark-big");
+      }
+      sessionStorage.setItem("bookmarked", JSON.stringify(bookmarked));
     }
   });
+}
+
+function hideCard(i) {
+  card[i].classList.add("display-none");
 }
