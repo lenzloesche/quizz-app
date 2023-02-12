@@ -24,6 +24,7 @@
 .profile__text {
   font-size: 30px;
   font-weight: bold;
+  padding: 0 15px;
 }
 
 .profile__text-2 {

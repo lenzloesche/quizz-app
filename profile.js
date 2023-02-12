@@ -59,7 +59,7 @@ function changeLanguageTo(language) {
     germanButton.style.border = "0";
     englishButton.style.border = "3px solid black";
   } else if (language === "german") {
-    userName.innerText = "Benutzername";
+    userName.innerText = "Name";
     darkModeText.innerText = darkModeTextGerman;
     germanButton.style.border = "3px solid black";
     englishButton.style.border = "0";
