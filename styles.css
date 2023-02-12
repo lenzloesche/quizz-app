@@ -31,6 +31,10 @@
   color: #c9d1d9;
 }
 
+.dark-mode__transition {
+  transition: background-color 0.5s linear;
+}
+
 .card--dark-mode {
   background-color: #0d1117;
   color: #c9d1d9;

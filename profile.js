@@ -20,6 +20,26 @@ let currentLanguage = sessionStorage.getItem("currentLanguage");
 const darkModeTextEnglish = "Dark Mode";
 const darkModeTextGerman = "Dunkler Modus";
 
+bookmarked = JSON.parse(sessionStorage.getItem("bookmarked"));
+questions = JSON.parse(sessionStorage.getItem("questions"));
+const questionString = document.querySelector('[data-js="questionString"]');
+const bookmarkString = document.querySelector('[data-js="bookmarkString"]');
+
+if (questions != null) {
+  questionString.textContent = "x" + questions.length;
+}
+
+if (bookmarked != null) {
+  let counter = 0;
+  for (const item of bookmarked) {
+    if (item === true) {
+      counter++;
+    }
+  }
+
+  bookmarkString.textContent = "x" + counter;
+}
+
 englishButton.addEventListener("click", () => {
   currentLanguage = "english";
   sessionStorage.setItem("currentLanguage", "english");
@@ -39,7 +59,7 @@ function changeLanguageTo(language) {
     germanButton.style.border = "0";
     englishButton.style.border = "3px solid black";
   } else if (language === "german") {
-    userName.innerText = "Benutzername";
+    userName.innerText = "Name";
     darkModeText.innerText = darkModeTextGerman;
     germanButton.style.border = "3px solid black";
     englishButton.style.border = "0";
@@ -64,8 +84,21 @@ darkModeSwitch.addEventListener("click", () => {
     sessionStorage.setItem("darkModeOn", "0");
     darkmodeOn = "0";
   }
+  darkModeTransition();
   changeTheme();
 });
+
+function darkModeTransition() {
+  body.classList.add("dark-mode__transition");
+  card.classList.add("dark-mode__transition");
+  header.classList.add("dark-mode__transition");
+  footer.classList.add("dark-mode__transition");
+  navItemSelected.classList.add("dark-mode__transition");
+  counter1.classList.add("dark-mode__transition");
+  counter2.classList.add("dark-mode__transition");
+  englishButton.classList.add("dark-mode__transition");
+  germanButton.classList.add("dark-mode__transition");
+}
 
 function changeTheme() {
   body.classList.toggle("body--dark-mode");
