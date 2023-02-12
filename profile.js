@@ -84,8 +84,21 @@ darkModeSwitch.addEventListener("click", () => {
     sessionStorage.setItem("darkModeOn", "0");
     darkmodeOn = "0";
   }
+  darkModeTransition();
   changeTheme();
 });
+
+function darkModeTransition() {
+  body.classList.add("dark-mode__transition");
+  card.classList.add("dark-mode__transition");
+  header.classList.add("dark-mode__transition");
+  footer.classList.add("dark-mode__transition");
+  navItemSelected.classList.add("dark-mode__transition");
+  counter1.classList.add("dark-mode__transition");
+  counter2.classList.add("dark-mode__transition");
+  englishButton.classList.add("dark-mode__transition");
+  germanButton.classList.add("dark-mode__transition");
+}
 
 function changeTheme() {
   body.classList.toggle("body--dark-mode");
