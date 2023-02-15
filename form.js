@@ -6,7 +6,8 @@ const inputAnswer = document.querySelector('[data-js="answer"]');
 const inputTag1 = document.querySelector('[data-js="tag1"]');
 const inputTag2 = document.querySelector('[data-js="tag2"]');
 const inputTag3 = document.querySelector('[data-js="tag3"]');
-
+const buttomRandom = document.querySelector('[data-js="button_random"]');
+const randomOutput = document.querySelector('[data-js="randomOutput"]');
 let questions = [
   "question 1?",
   "question 2?",
@@ -181,9 +182,50 @@ function changeTheme() {
   inputTag3.classList.toggle("card--dark-mode");
   button = document.querySelector('[data-js="button"]');
   button.classList.toggle("card--dark-mode");
+  buttomRandom.classList.toggle("card--dark-mode");
+  randomOutput.classList.toggle("card--dark-mode");
   header.classList.toggle("card--dark-mode");
   footer.classList.toggle("card--dark-mode");
 }
 if (darkmodeOn == "1") {
   changeTheme();
+}
+
+buttomRandom.addEventListener("click", () => {
+  getQuestion();
+});
+
+async function getQuestion() {
+  try {
+    buttomRandom.disabled = true;
+    buttomRandom.textContent = "...";
+    randomOutput.textContent = "Fetching Random Card";
+    const fetchJson = await fetch("https://opentdb.com/api.php?amount=1");
+    if (fetchJson.ok) {
+      const fetchJs = await fetchJson.json();
+
+      const question = decodeHtml(fetchJs.results[0].question);
+      const answer = decodeHtml(fetchJs.results[0].correct_answer);
+      const tag = decodeHtml(fetchJs.results[0].category);
+
+      inputQuestion.value = question;
+      inputAnswer.value = answer;
+      inputTag1.value = tag;
+
+      randomOutput.textContent = "Fetching Successful";
+    }
+  } catch (error) {
+    console.log("Fetching failed...");
+    console.log(error);
+    randomOutput.textContent = "Fetching failed";
+  } finally {
+    buttomRandom.disabled = false;
+    buttomRandom.textContent = "Generate Random Card";
+  }
+}
+
+function decodeHtml(html) {
+  var txt = document.createElement("textarea");
+  txt.innerHTML = html;
+  return txt.value;
 }
