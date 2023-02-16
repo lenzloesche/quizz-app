@@ -1,6 +1,5 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-const htmlParser = require("./node_modules/html-entities");
-
+const htmlDecode = require("html-entities");
 const form = document.querySelector('[data-js="form"]');
 const main = document.querySelector('[data-js="main"]');
 const body = document.querySelector('[data-js="body"]');
@@ -207,9 +206,9 @@ async function getQuestion() {
     if (fetchJson.ok) {
       const fetchJs = await fetchJson.json();
 
-      const question = htmlParser.decode(fetchJs.results[0].question);
-      const answer = htmlParser.decode(fetchJs.results[0].correct_answer);
-      const tag = htmlParser.decode(fetchJs.results[0].category);
+      const question = htmlDecode.decode(fetchJs.results[0].question);
+      const answer = htmlDecode.decode(fetchJs.results[0].correct_answer);
+      const tag = htmlDecode.decode(fetchJs.results[0].category);
 
       inputQuestion.value = question;
       inputAnswer.value = answer;
@@ -227,7 +226,7 @@ async function getQuestion() {
   }
 }
 
-},{"./node_modules/html-entities":2}],2:[function(require,module,exports){
+},{"html-entities":2}],2:[function(require,module,exports){
 "use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {

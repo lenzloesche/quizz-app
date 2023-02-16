@@ -1,5 +1,4 @@
-const htmlParser = require("./node_modules/html-entities");
-
+const htmlDecode = require("html-entities");
 const form = document.querySelector('[data-js="form"]');
 const main = document.querySelector('[data-js="main"]');
 const body = document.querySelector('[data-js="body"]');
@@ -206,9 +205,9 @@ async function getQuestion() {
     if (fetchJson.ok) {
       const fetchJs = await fetchJson.json();
 
-      const question = htmlParser.decode(fetchJs.results[0].question);
-      const answer = htmlParser.decode(fetchJs.results[0].correct_answer);
-      const tag = htmlParser.decode(fetchJs.results[0].category);
+      const question = htmlDecode.decode(fetchJs.results[0].question);
+      const answer = htmlDecode.decode(fetchJs.results[0].correct_answer);
+      const tag = htmlDecode.decode(fetchJs.results[0].category);
 
       inputQuestion.value = question;
       inputAnswer.value = answer;
