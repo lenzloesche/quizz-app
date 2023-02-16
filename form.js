@@ -1,4 +1,4 @@
-import { encode } from "html-entities";
+const htmlParser = require("./node_modules/html-entities");
 
 const form = document.querySelector('[data-js="form"]');
 const main = document.querySelector('[data-js="main"]');
@@ -206,9 +206,9 @@ async function getQuestion() {
     if (fetchJson.ok) {
       const fetchJs = await fetchJson.json();
 
-      const question = encode(fetchJs.results[0].question);
-      const answer = encode(fetchJs.results[0].correct_answer);
-      const tag = encode(fetchJs.results[0].category);
+      const question = htmlParser.decode(fetchJs.results[0].question);
+      const answer = htmlParser.decode(fetchJs.results[0].correct_answer);
+      const tag = htmlParser.decode(fetchJs.results[0].category);
 
       inputQuestion.value = question;
       inputAnswer.value = answer;
@@ -225,9 +225,3 @@ async function getQuestion() {
     buttomRandom.textContent = "Generate Random Card";
   }
 }
-
-/* function decodeHtml(htmlInput) {
-  let stringOutput = new DOMParser().parseFromString(htmlInput, "text/html");
-  return stringOutput.documentElement.textContent;
-}
- */
