@@ -1,0 +1,23 @@
+{
+  "name": "quizz-app",
+  "version": "1.0.0",
+  "description": "This project was coded for the \"neue fische\" boot camp.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lenzloesche/quizz-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lenzloesche/quizz-app/issues"
+  },
+  "homepage": "https://github.com/lenzloesche/quizz-app#readme",
+  "dependencies": {
+    "browserify": "^17.0.0",
+    "html-entities": "^2.3.3"
+  }
+}

@@ -27,6 +27,11 @@ button.input:hover {
   cursor: pointer;
   color: black;
 }
+
+.randombutton:disabled {
+  background-color: grey;
+}
+
 .counter {
   text-align: right;
   margin-right: 10px;

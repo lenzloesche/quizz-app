@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <script src="form.js" defer></script>
+    <script src="formBundle.js" type="module"></script>
     <title>Lenz' Quiz App - Add Card</title>
   </head>
   <body data-js="body">
@@ -15,6 +15,15 @@
     <main class="cardcontainer" data-js="main">
       <section class="card" data-js="card">
         <form action="" class="form" data-js="form">
+          <button
+            data-js="button_random"
+            class="input randombutton"
+            type="click"
+          >
+            Generate Random Card
+          </button>
+          <p data-js="randomOutput" class="counter"></p>
+
           <label for="question" class="form__label">Question: </label>
           <textarea
             name="question"
