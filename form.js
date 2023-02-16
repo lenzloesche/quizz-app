@@ -1,3 +1,5 @@
+import { encode } from "html-entities";
+
 const form = document.querySelector('[data-js="form"]');
 const main = document.querySelector('[data-js="main"]');
 const body = document.querySelector('[data-js="body"]');
@@ -204,9 +206,9 @@ async function getQuestion() {
     if (fetchJson.ok) {
       const fetchJs = await fetchJson.json();
 
-      const question = decodeHtml(fetchJs.results[0].question);
-      const answer = decodeHtml(fetchJs.results[0].correct_answer);
-      const tag = decodeHtml(fetchJs.results[0].category);
+      const question = encode(fetchJs.results[0].question);
+      const answer = encode(fetchJs.results[0].correct_answer);
+      const tag = encode(fetchJs.results[0].category);
 
       inputQuestion.value = question;
       inputAnswer.value = answer;
@@ -224,7 +226,8 @@ async function getQuestion() {
   }
 }
 
-function decodeHtml(htmlInput) {
+/* function decodeHtml(htmlInput) {
   let stringOutput = new DOMParser().parseFromString(htmlInput, "text/html");
   return stringOutput.documentElement.textContent;
 }
+ */
