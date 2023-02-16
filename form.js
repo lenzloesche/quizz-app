@@ -224,8 +224,7 @@ async function getQuestion() {
   }
 }
 
-function decodeHtml(html) {
-  var txt = document.createElement("textarea");
-  txt.innerHTML = html;
-  return txt.value;
+function decodeHtml(htmlInput) {
+  let stringOutput = new DOMParser().parseFromString(htmlInput, "text/html");
+  return stringOutput.documentElement.textContent;
 }
