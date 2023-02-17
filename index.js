@@ -73,8 +73,6 @@ const {
 
 let darkmodeOn = sessionStorage.getItem("darkModeOn");
 
-let questionsOutput = [];
-
 export let currentLanguage = sessionStorage.getItem("currentLanguage");
 currentLanguage = setLanguage(currentLanguage);
 
@@ -82,11 +80,6 @@ for (let i = 0; i < numberOfCards; i++) {
   changeHideAndShowAnswer(i, webElements, isAnswerShown);
 }
 
-if (currentLanguage === "english") {
-  questionsOutput = questions;
-} else if (currentLanguage === "german") {
-  questionsOutput = questionsGerman;
-}
 if (document.URL.includes("bookmarks.html")) {
   for (let i = 0; i < numberOfCards; i++) {
     webElements.bookmarks[i].classList.add("card__bookmark-big");

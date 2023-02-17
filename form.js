@@ -1,3 +1,13 @@
+import {
+  questionsNew,
+  answersNew,
+  questionsGermanNew,
+  answersGermanNew,
+  tagsNew,
+  bookmarkedNew,
+  isAnswerShownNew,
+} from "./startingCardContent.js";
+
 const htmlDecode = require("html-entities");
 const form = document.querySelector('[data-js="form"]');
 const main = document.querySelector('[data-js="main"]');
@@ -9,41 +19,17 @@ const inputTag2 = document.querySelector('[data-js="tag2"]');
 const inputTag3 = document.querySelector('[data-js="tag3"]');
 const buttomRandom = document.querySelector('[data-js="button_random"]');
 const randomOutput = document.querySelector('[data-js="randomOutput"]');
-let questions = [
-  "question 1?",
-  "question 2?",
-  "question 3?",
-  "question 4?",
-  "question 5?",
-];
+let questions = questionsNew;
 
-let answers = ["answer 1.", "answer 2.", "answer 3", "answer 4", "answer 5"];
+let answers = answersNew;
 
-let questionsGerman = [
-  "Frage 1?",
-  "Frage 2?",
-  "Frage 3?",
-  "Frage 4?",
-  "Frage 5?",
-];
+let questionsGerman = questionsGermanNew;
 
-let answersGerman = [
-  "Antwort 1.",
-  "Antwort 2.",
-  "Antwort 3.",
-  "Antwort 4.",
-  "Antwort 5.",
-];
+let answersGerman = answersGermanNew;
 
-let tags = [
-  ["tag1", "tag2", "tag3"],
-  ["tag1"],
-  ["tag1", "tag2"],
-  ["tag1", "tag2", "tag3"],
-  ["tag1", "tag2"],
-];
+let tags = tagsNew;
 
-let bookmarked = [false, false, false, false, false];
+let bookmarked = bookmarkedNew;
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
