@@ -14,10 +14,10 @@ import { bookmarkClick } from "./bookmarks.js";
 import { setLanguage } from "./language.js";
 import { createAnswerButton, changeHideAndShowAnswer } from "./cards.js";
 
-let questions = questionsNew;
-let answers = answersNew;
-let questionsGerman = questionsGermanNew;
-let answersGerman = answersGermanNew;
+export let questions = questionsNew;
+export let answers = answersNew;
+export let questionsGerman = questionsGermanNew;
+export let answersGerman = answersGermanNew;
 let tags = tagsNew;
 let bookmarked = bookmarkedNew;
 const isAnswerShown = isAnswerShownNew;
@@ -40,7 +40,6 @@ for (const bookmark of bookmarked) {
   isAnswerShown.push(true);
 }
 
-export let answerOutput = answers;
 let numberOfCards = questions.length;
 
 for (let cardNumber = 0; cardNumber < numberOfCards; cardNumber++) {
@@ -84,10 +83,8 @@ for (let i = 0; i < numberOfCards; i++) {
 }
 
 if (currentLanguage === "english") {
-  answerOutput = answers;
   questionsOutput = questions;
 } else if (currentLanguage === "german") {
-  answerOutput = answersGerman;
   questionsOutput = questionsGerman;
 }
 if (document.URL.includes("bookmarks.html")) {
@@ -96,7 +93,7 @@ if (document.URL.includes("bookmarks.html")) {
   }
 }
 
-changeLanguageTo(currentLanguage, questionsQuery, questionsOutput);
+changeLanguageTo(questionsQuery);
 
 for (let i = 0; i < numberOfCards; i++) {
   createAnswerButton(i, webElements, isAnswerShown);
