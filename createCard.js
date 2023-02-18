@@ -46,3 +46,18 @@ export function createCard(cardNumber, bookmarked, tags) {
     section.children[4].innerHTML = innerHTML;
   }
 }
+
+export function addNewCardToVariables(cardSuite, webElements) {
+  console.log(cardSuite);
+  console.log(webElements);
+  cardSuite.questions.push(webElements.inputQuestion.value);
+  cardSuite.answers.push(webElements.inputAnswer.value);
+  cardSuite.questionsGerman.push(webElements.inputQuestion.value);
+  cardSuite.answersGerman.push(webElements.inputAnswer.value);
+  cardSuite.tags.push([
+    webElements.inputTag1.value,
+    webElements.inputTag2.value,
+    webElements.inputTag3.value,
+  ]);
+  cardSuite.bookmarked.push(false);
+}

@@ -7,29 +7,51 @@ import {
   bookmarkedNew,
   isAnswerShownNew,
 } from "./startingCardContent.js";
+import { addNewCardToVariables } from "./createCard.js";
 
 const htmlDecode = require("html-entities");
-const form = document.querySelector('[data-js="form"]');
-const main = document.querySelector('[data-js="main"]');
-const body = document.querySelector('[data-js="body"]');
-const inputQuestion = document.querySelector('[data-js="question"]');
-const inputAnswer = document.querySelector('[data-js="answer"]');
-const inputTag1 = document.querySelector('[data-js="tag1"]');
-const inputTag2 = document.querySelector('[data-js="tag2"]');
-const inputTag3 = document.querySelector('[data-js="tag3"]');
-const buttomRandom = document.querySelector('[data-js="button_random"]');
-const randomOutput = document.querySelector('[data-js="randomOutput"]');
-let questions = questionsNew;
 
-let answers = answersNew;
+const webElements = {
+  form: document.querySelector('[data-js="form"]'),
+  main: document.querySelector('[data-js="main"]'),
+  body: document.querySelector('[data-js="body"]'),
+  inputQuestion: document.querySelector('[data-js="question"]'),
+  inputAnswer: document.querySelector('[data-js="answer"]'),
+  inputTag1: document.querySelector('[data-js="tag1"]'),
+  inputTag2: document.querySelector('[data-js="tag2"]'),
+  inputTag3: document.querySelector('[data-js="tag3"]'),
+  buttomRandom: document.querySelector('[data-js="button_random"]'),
+  randomOutput: document.querySelector('[data-js="randomOutput"]'),
+};
 
-let questionsGerman = questionsGermanNew;
+let {
+  form,
+  main,
+  body,
+  inputQuestion,
+  inputAnswer,
+  inputTag1,
+  inputTag2,
+  inputTag3,
+  buttomRandom,
+  randomOutput,
+} = webElements;
 
-let answersGerman = answersGermanNew;
+const cardSuite = {
+  questions: questionsNew,
 
-let tags = tagsNew;
+  answers: answersNew,
 
-let bookmarked = bookmarkedNew;
+  questionsGerman: questionsGermanNew,
+
+  answersGerman: answersGermanNew,
+
+  tags: tagsNew,
+
+  bookmarked: bookmarkedNew,
+};
+let { questions, answers, questionsGerman, answersGerman, tags, bookmarked } =
+  cardSuite;
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -92,7 +114,7 @@ form.addEventListener("submit", (event) => {
   }
 
   getSaved();
-  addNewCardToVariables();
+  addNewCardToVariables(cardSuite, webElements);
   saveCard();
   event.target.reset();
 });
@@ -110,15 +132,7 @@ function getSaved() {
     bookmarked = JSON.parse(sessionStorage.getItem("bookmarked"));
   }
 }
-
-function addNewCardToVariables() {
-  questions.push(inputQuestion.value);
-  answers.push(inputAnswer.value);
-  questionsGerman.push(inputQuestion.value);
-  answersGerman.push(inputAnswer.value);
-  tags.push([inputTag1.value, inputTag2.value, inputTag3.value]);
-  bookmarked.push(false);
-}
+addNewCardToVariables(cardSuite, webElements);
 
 function saveCard() {
   sessionStorage.setItem("questions", JSON.stringify(questions));
