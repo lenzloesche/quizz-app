@@ -3,6 +3,7 @@
 @import "/Components/Profile/profile.css";
 @import "/Components/HeaderFooter/headerfooter.css";
 @import "/Components/Form/form.css";
+@import "/Components/Theme/theme.css";
 
 .shadow {
   box-shadow: 5px 5px 10px black;
@@ -24,22 +25,4 @@
   flex-direction: row;
   width: 100%;
   justify-content: space-evenly;
-}
-
-.body--dark-mode {
-  background-color: #0a0d11;
-  color: #c9d1d9;
-}
-
-.dark-mode__transition {
-  transition: background-color 0.5s linear;
-}
-
-.card--dark-mode {
-  background-color: #0d1117;
-  color: #c9d1d9;
-}
-
-.nav--dark-mode {
-  background-color: #1f2837;
 }
