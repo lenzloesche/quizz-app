@@ -1,5 +1,5 @@
-import { darkModeTransition, changeThemeProfile } from "./theme.js";
-//import { changeLanguageProfileTo } from "./language.js";
+import { addDarkModeSwitch, changeThemeProfile } from "./theme.js";
+import { changeLanguageProfileTo, setLanguageProfilePage } from "./language.js";
 
 const webElements = {
   body: document.querySelector('[data-js="body"]'),
@@ -18,34 +18,17 @@ const webElements = {
   navItemSelected: document.querySelector('[data-js="nav__item-selected"]'),
 };
 
-const {
-  body,
-  card,
-  header,
-  footer,
-  counter1,
-  counter2,
-  darkModeSwitch,
-  darkModeText,
-  userName,
-  englishButton,
-  germanButton,
-  questionString,
-  bookmarkString,
-  navItemSelected,
-} = webElements;
-
 let darkmodeOn = sessionStorage.getItem("darkModeOn");
 
 let currentLanguage = sessionStorage.getItem("currentLanguage");
-export const darkModeTextEnglish = "Dark Mode";
-export const darkModeTextGerman = "Dunkler Modus";
+const darkModeTextEnglish = "Dark Mode";
+const darkModeTextGerman = "Dunkler Modus";
 
 let bookmarked = JSON.parse(sessionStorage.getItem("bookmarked"));
 let questions = JSON.parse(sessionStorage.getItem("questions"));
 
 if (questions != null) {
-  questionString.textContent = "x" + questions.length;
+  webElements.questionString.textContent = "x" + questions.length;
 }
 
 if (bookmarked != null) {
@@ -56,57 +39,47 @@ if (bookmarked != null) {
     }
   }
 
-  bookmarkString.textContent = "x" + counter;
+  webElements.bookmarkString.textContent = "x" + counter;
 }
-console.log(englishButton);
-englishButton.addEventListener("click", () => {
+webElements.englishButton.addEventListener("click", () => {
   currentLanguage = "english";
   sessionStorage.setItem("currentLanguage", "english");
-  changeLanguageProfileTo(currentLanguage, webElements);
+  changeLanguageProfileTo(
+    currentLanguage,
+    webElements,
+    darkModeTextEnglish,
+    darkModeTextGerman
+  );
 });
 
-germanButton.addEventListener("click", () => {
+webElements.germanButton.addEventListener("click", () => {
   currentLanguage = "german";
   sessionStorage.setItem("currentLanguage", "german");
-  changeLanguageProfileTo(currentLanguage, webElements);
+  changeLanguageProfileTo(
+    currentLanguage,
+    webElements,
+    darkModeTextEnglish,
+    darkModeTextGerman
+  );
 });
-function changeLanguageProfileTo(language, webElements) {
-  if (language === "english") {
-    webElements.darkModeText.innerText = darkModeTextEnglish;
-    webElements.userName.innerText = "User Name";
-    webElements.germanButton.style.border = "0";
-    webElements.englishButton.style.border = "3px solid black";
-  } else {
-    webElements.userName.innerText = "Name";
-    webElements.darkModeText.innerText = darkModeTextGerman;
-    webElements.germanButton.style.border = "3px solid black";
-    webElements.englishButton.style.border = "0";
-  }
-}
 
-if (currentLanguage != undefined) {
-  changeLanguageProfileTo(currentLanguage, webElements);
-} else {
-  currentLanguage = "english";
-  sessionStorage.setItem("currentLanguage", "english");
-  changeLanguageProfileTo("english", webElements);
-}
+changeLanguageProfileTo(
+  currentLanguage,
+  webElements,
+  darkModeTextEnglish,
+  darkModeTextGerman
+);
 
-darkModeSwitch.addEventListener("click", () => {
-  if (darkmodeOn == "0" || !darkmodeOn) {
-    darkModeSwitch.src = "/images/switch_on.gif";
-    sessionStorage.setItem("darkModeOn", "1");
-    darkmodeOn = "1";
-  } else {
-    darkModeSwitch.src = "/images/switch_off.svg";
-    sessionStorage.setItem("darkModeOn", "0");
-    darkmodeOn = "0";
-  }
-  darkModeTransition(webElements);
-  changeThemeProfile(webElements);
-});
+setLanguageProfilePage(
+  currentLanguage,
+  webElements,
+  darkModeTextEnglish,
+  darkModeTextGerman
+);
+
+addDarkModeSwitch(webElements, darkmodeOn);
 
 if (darkmodeOn == "1") {
-  changeThemeProfile(webElements);
-  darkModeSwitch.src = "/images/switch_on.gif";
+  changeThemeProfile(webElements, darkModeTextEnglish, darkModeTextGerman);
+  webElements.darkModeSwitch.src = "/images/switch_on.gif";
 }

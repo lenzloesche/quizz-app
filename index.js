@@ -86,7 +86,7 @@ if (document.URL.includes("bookmarks.html")) {
   }
 }
 
-changeLanguageTo(questionsQuery);
+changeLanguageTo(questionsQuery, currentLanguage, questionsGerman, questions);
 
 for (let i = 0; i < numberOfCards; i++) {
   createAnswerButton(i, webElements, isAnswerShown);

@@ -1,9 +1,16 @@
-import { questionsGerman, questions, currentLanguage } from "./index.js";
-//import { darkModeTextGerman, darkModeTextEnglish } from "./profile.js";
-
-export function changeLanguageTo(questionsQuery) {
+export function changeLanguageTo(
+  questionsQuery,
+  currentLanguage,
+  questionsGerman,
+  questions
+) {
   for (let i = 0; i < questionsQuery.length; i++) {
-    questionsQuery[i].innerText = getQuestion(i);
+    questionsQuery[i].innerText = getQuestion(
+      i,
+      currentLanguage,
+      questionsGerman,
+      questions
+    );
   }
 }
 export function setLanguage(currentLanguage) {
@@ -15,15 +22,20 @@ export function setLanguage(currentLanguage) {
   }
 }
 
-function getQuestion(i) {
+function getQuestion(i, currentLanguage, questionsGerman, questions) {
   if (currentLanguage === "english") {
     return questions[i];
   }
   return questionsGerman[i];
 }
 
-/* export function changeLanguageProfileTo(language, webElements) {
-  if (language === "english") {
+export function changeLanguageProfileTo(
+  currentLanguage,
+  webElements,
+  darkModeTextEnglish,
+  darkModeTextGerman
+) {
+  if (currentLanguage === "english") {
     webElements.darkModeText.innerText = darkModeTextEnglish;
     webElements.userName.innerText = "User Name";
     webElements.germanButton.style.border = "0";
@@ -34,4 +46,29 @@ function getQuestion(i) {
     webElements.germanButton.style.border = "3px solid black";
     webElements.englishButton.style.border = "0";
   }
-} */
+}
+
+export function setLanguageProfilePage(
+  currentLanguage,
+  webElements,
+  darkModeTextEnglish,
+  darkModeTextGerman
+) {
+  if (currentLanguage != undefined) {
+    changeLanguageProfileTo(
+      currentLanguage,
+      webElements,
+      darkModeTextEnglish,
+      darkModeTextGerman
+    );
+  } else {
+    currentLanguage = "english";
+    sessionStorage.setItem("currentLanguage", "english");
+    changeLanguageProfileTo(
+      "english",
+      webElements,
+      darkModeTextEnglish,
+      darkModeTextGerman
+    );
+  }
+}

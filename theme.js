@@ -42,3 +42,18 @@ export function changeThemeProfile(webElements) {
   webElements.englishButton.classList.toggle("card--dark-mode");
   webElements.germanButton.classList.toggle("card--dark-mode");
 }
+export function addDarkModeSwitch(webElements, darkmodeOn) {
+  webElements.darkModeSwitch.addEventListener("click", () => {
+    if (darkmodeOn == "0" || !darkmodeOn) {
+      webElements.darkModeSwitch.src = "images/switch_on.gif";
+      sessionStorage.setItem("darkModeOn", "1");
+      darkmodeOn = "1";
+    } else {
+      webElements.darkModeSwitch.src = "images/switch_off.svg";
+      sessionStorage.setItem("darkModeOn", "0");
+      darkmodeOn = "0";
+    }
+    darkModeTransition(webElements);
+    changeThemeProfile(webElements);
+  });
+}
