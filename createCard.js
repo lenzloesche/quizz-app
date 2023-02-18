@@ -1,9 +1,9 @@
 export function createCard(cardNumber, bookmarked, tags) {
   let bookmarksImage;
   if (bookmarked[cardNumber] === true) {
-    bookmarksImage = "images/bookmark_black.svg";
+    bookmarksImage = "./images/bookmark_black.svg";
   } else {
-    bookmarksImage = "images/bookmark_white.svg";
+    bookmarksImage = "./images/bookmark_white.svg";
   }
 
   const section = document.createElement("section");
