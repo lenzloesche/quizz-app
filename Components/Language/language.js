@@ -1,9 +1,5 @@
-export function changeLanguageTo(
-  questionsQuery,
-  currentLanguage,
-  questionsGerman,
-  questions
-) {
+export function changeLanguageTo(currentLanguage, questionsGerman, questions) {
+  const questionsQuery = document.querySelectorAll('[data-js="question"]');
   for (let i = 0; i < questionsQuery.length; i++) {
     questionsQuery[i].innerText = getQuestion(
       i,

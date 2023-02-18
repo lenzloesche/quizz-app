@@ -1,15 +1,15 @@
 export function createAnswerButton(
   i,
-  webElements,
   isAnswerShown,
   answers,
   answersGerman,
   currentLanguage
 ) {
-  webElements.show_answer[i].addEventListener("click", () => {
+  const show_answer = document.querySelectorAll('[data-js="show_answer"]');
+
+  show_answer[i].addEventListener("click", () => {
     changeHideAndShowAnswer(
       i,
-      webElements,
       isAnswerShown,
       answers,
       answersGerman,
@@ -20,25 +20,27 @@ export function createAnswerButton(
 
 export function changeHideAndShowAnswer(
   position,
-  webElements,
   isAnswerShown,
   answers,
   answersGerman,
   currentLanguage
 ) {
+  const show_answer = document.querySelectorAll('[data-js="show_answer"]');
+  const answer = document.querySelectorAll('[data-js="answer"]');
+
   if (isAnswerShown[position] === true) {
-    webElements.answer[position].innerText = "...";
-    webElements.show_answer[position].children[0].textContent =
+    answer[position].innerText = "...";
+    show_answer[position].children[0].textContent =
       showTextShowAnswer(currentLanguage);
     isAnswerShown[position] = false;
   } else {
-    webElements.answer[position].innerText = showAnswer(
+    answer[position].innerText = showAnswer(
       position,
       currentLanguage,
       answers,
       answersGerman
     );
-    webElements.show_answer[position].children[0].textContent =
+    show_answer[position].children[0].textContent =
       hideTextShowAnswer(currentLanguage);
     isAnswerShown[position] = true;
   }

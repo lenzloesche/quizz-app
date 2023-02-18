@@ -1,4 +1,15 @@
-export function changeTheme(webElements) {
+export function changeTheme() {
+  const webElements = {
+    body: document.querySelector('[data-js="body"]'),
+    answer: document.querySelectorAll('[data-js="answer"]'),
+    card: document.querySelectorAll('[data-js="card"]'),
+    show_answer: document.querySelectorAll('[data-js="show_answer"]'),
+    navItemSelected: document.querySelector('[data-js="nav__item-selected"]'),
+    tag: document.querySelectorAll('[data-js="tag"]'),
+    header: document.querySelector('[data-js="header"]'),
+    footer: document.querySelector('[data-js="footer"]'),
+  };
+
   webElements.body.classList.toggle("body--dark-mode");
   webElements.navItemSelected.classList.toggle("nav--dark-mode");
 

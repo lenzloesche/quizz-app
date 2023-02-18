@@ -1,32 +1,37 @@
-export function bookmarkClick(webElements, bookmarked) {
+export function bookmarkClick(bookmarked) {
+  const bookmarks = document.querySelectorAll('[data-js="bookmark"]');
+  const card = document.querySelectorAll('[data-js="card"]');
   const bookmark_black = "./../../images/bookmark_black.svg";
   const bookmark_white = "./../../images/bookmark_white.svg";
-  for (let i = 0; i < webElements.bookmarks.length; i++) {
-    webElements.bookmarks[i].addEventListener("click", () => {
-      if (!webElements.card[i].classList.contains("card-dissapear")) {
+
+  for (let i = 0; i < bookmarks.length; i++) {
+    bookmarks[i].addEventListener("click", () => {
+      if (!card[i].classList.contains("card-dissapear")) {
         if (bookmarked[i] === true) {
           bookmarked[i] = false;
-          webElements.bookmarks[i].src = bookmark_white;
-          webElements.bookmarks[i].classList.remove("card__bookmark-big");
+          bookmarks[i].src = bookmark_white;
+          bookmarks[i].classList.remove("card__bookmark-big");
           if (document.URL.includes("bookmarks.html")) {
-            webElements.card[i].classList.add("card-dissapear");
-            let timeoutId = setTimeout(hideCard, 1000, i, webElements);
+            card[i].classList.add("card-dissapear");
+            let timeoutId = setTimeout(hideCard, 1000, i, card);
           }
         } else {
           bookmarked[i] = true;
-          webElements.bookmarks[i].src = bookmark_black;
-          webElements.bookmarks[i].classList.add("card__bookmark-big");
+          bookmarks[i].src = bookmark_black;
+          bookmarks[i].classList.add("card__bookmark-big");
         }
         sessionStorage.setItem("bookmarked", JSON.stringify(bookmarked));
       }
     });
   }
 }
-function hideCard(i, webElements) {
-  webElements.card[i].classList.add("display-none");
+function hideCard(i, card) {
+  card[i].classList.add("display-none");
 }
 
-export function magnifyBookmark(bookmarks) {
+export function magnifyBookmark() {
+  const bookmarks = document.querySelectorAll('[data-js="bookmark"]');
+
   if (document.URL.includes("bookmarks.html")) {
     for (let i = 0; i < bookmarks.length; i++) {
       bookmarks[i].classList.add("card__bookmark-big");

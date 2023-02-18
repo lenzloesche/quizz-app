@@ -50,19 +50,6 @@ for (let cardNumber = 0; cardNumber < numberOfCards; cardNumber++) {
   createCard(cardNumber, bookmarked, tags);
 }
 
-const webElements = {
-  body: document.querySelector('[data-js="body"]'),
-  bookmarks: document.querySelectorAll('[data-js="bookmark"]'),
-  answer: document.querySelectorAll('[data-js="answer"]'),
-  card: document.querySelectorAll('[data-js="card"]'),
-  show_answer: document.querySelectorAll('[data-js="show_answer"]'),
-  navItemSelected: document.querySelector('[data-js="nav__item-selected"]'),
-  tag: document.querySelectorAll('[data-js="tag"]'),
-  header: document.querySelector('[data-js="header"]'),
-  footer: document.querySelector('[data-js="footer"]'),
-  questionsQuery: document.querySelectorAll('[data-js="question"]'),
-};
-
 let darkmodeOn = sessionStorage.getItem("darkModeOn");
 let currentLanguage = sessionStorage.getItem("currentLanguage");
 currentLanguage = setLanguage(currentLanguage);
@@ -70,7 +57,6 @@ currentLanguage = setLanguage(currentLanguage);
 for (let i = 0; i < numberOfCards; i++) {
   changeHideAndShowAnswer(
     i,
-    webElements,
     isAnswerShown,
     answers,
     answersGerman,
@@ -78,27 +64,15 @@ for (let i = 0; i < numberOfCards; i++) {
   );
 }
 
-magnifyBookmark(webElements.bookmarks);
+magnifyBookmark();
 
-changeLanguageTo(
-  webElements.questionsQuery,
-  currentLanguage,
-  questionsGerman,
-  questions
-);
+changeLanguageTo(currentLanguage, questionsGerman, questions);
 
 for (let i = 0; i < numberOfCards; i++) {
-  createAnswerButton(
-    i,
-    webElements,
-    isAnswerShown,
-    answers,
-    answersGerman,
-    currentLanguage
-  );
+  createAnswerButton(i, isAnswerShown, answers, answersGerman, currentLanguage);
 }
 
 if (darkmodeOn == "1") {
-  changeTheme(webElements);
+  changeTheme();
 }
-bookmarkClick(webElements, bookmarked);
+bookmarkClick(bookmarked);
