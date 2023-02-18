@@ -7,7 +7,7 @@ import {
   bookmarkedNew,
   isAnswerShownNew,
 } from "./startingCardContent.js";
-import { addNewCardToVariables } from "./createCard.js";
+import { addNewCardToVariables, initSubmitButton } from "./createCard.js";
 
 const htmlDecode = require("html-entities");
 

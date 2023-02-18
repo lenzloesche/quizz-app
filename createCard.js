@@ -48,8 +48,6 @@ export function createCard(cardNumber, bookmarked, tags) {
 }
 
 export function addNewCardToVariables(cardSuite, webElements) {
-  console.log(cardSuite);
-  console.log(webElements);
   cardSuite.questions.push(webElements.inputQuestion.value);
   cardSuite.answers.push(webElements.inputAnswer.value);
   cardSuite.questionsGerman.push(webElements.inputQuestion.value);
