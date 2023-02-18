@@ -25,3 +25,11 @@ export function bookmarkClick(webElements, bookmarked) {
 function hideCard(i, webElements) {
   webElements.card[i].classList.add("display-none");
 }
+
+export function magnifyBookmark(bookmarks) {
+  if (document.URL.includes("bookmarks.html")) {
+    for (let i = 0; i < bookmarks.length; i++) {
+      bookmarks[i].classList.add("card__bookmark-big");
+    }
+  }
+}

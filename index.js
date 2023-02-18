@@ -16,6 +16,7 @@ import {
   createAnswerButton,
   changeHideAndShowAnswer,
 } from "./Components/Card/cards.js";
+import { magnifyBookmark } from "./Components/Card/bookmarks.js";
 
 export let questions = questionsNew;
 export let answers = answersNew;
@@ -63,19 +64,21 @@ const webElements = {
 };
 
 let darkmodeOn = sessionStorage.getItem("darkModeOn");
-
-export let currentLanguage = sessionStorage.getItem("currentLanguage");
+let currentLanguage = sessionStorage.getItem("currentLanguage");
 currentLanguage = setLanguage(currentLanguage);
 
 for (let i = 0; i < numberOfCards; i++) {
-  changeHideAndShowAnswer(i, webElements, isAnswerShown);
+  changeHideAndShowAnswer(
+    i,
+    webElements,
+    isAnswerShown,
+    answers,
+    answersGerman,
+    currentLanguage
+  );
 }
 
-if (document.URL.includes("bookmarks.html")) {
-  for (let i = 0; i < numberOfCards; i++) {
-    webElements.bookmarks[i].classList.add("card__bookmark-big");
-  }
-}
+magnifyBookmark(webElements.bookmarks);
 
 changeLanguageTo(
   webElements.questionsQuery,
@@ -85,7 +88,14 @@ changeLanguageTo(
 );
 
 for (let i = 0; i < numberOfCards; i++) {
-  createAnswerButton(i, webElements, isAnswerShown);
+  createAnswerButton(
+    i,
+    webElements,
+    isAnswerShown,
+    answers,
+    answersGerman,
+    currentLanguage
+  );
 }
 
 if (darkmodeOn == "1") {
