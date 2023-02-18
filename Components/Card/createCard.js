@@ -1,5 +1,5 @@
-import bookmark_black from "./../../images/bookmark_black.svg";
-import bookmark_white from "./../../images/bookmark_white.svg";
+import bookmark_black from "./../../Images/Bookmark_black.svg";
+import bookmark_white from "./../../Images/Bookmark_white.svg";
 
 export function createCard(cardNumber, bookmarked, tags) {
   let bookmarksImage;
