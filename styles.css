@@ -1,8 +1,8 @@
 @import "global.css";
-@import "/components/card.css";
-@import "/components/profile.css";
-@import "/components/headerfooter.css";
-@import "/components/form.css";
+@import "/components/card/card.css";
+@import "/components/profile/profile.css";
+@import "/components/headerfooter/headerfooter.css";
+@import "/components/form/form.css";
 
 .shadow {
   box-shadow: 5px 5px 10px black;

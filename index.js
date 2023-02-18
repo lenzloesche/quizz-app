@@ -6,13 +6,16 @@ import {
   tagsNew,
   bookmarkedNew,
   isAnswerShownNew,
-} from "./startingCardContent.js";
-import { changeLanguageTo } from "./language.js";
-import { createCard } from "./createCard.js";
-import { changeTheme } from "./theme.js";
-import { bookmarkClick } from "./bookmarks.js";
-import { setLanguage } from "./language.js";
-import { createAnswerButton, changeHideAndShowAnswer } from "./cards.js";
+} from "./Utils/startingCardContent.js";
+import { changeLanguageTo } from "./Components/Language/language.js";
+import { createCard } from "./Components/card/createCard.js";
+import { changeTheme } from "./Components/Theme/theme.js";
+import { bookmarkClick } from "./Components/Card/bookmarks.js";
+import { setLanguage } from "./Components/Language/language.js";
+import {
+  createAnswerButton,
+  changeHideAndShowAnswer,
+} from "./components/card/cards.js";
 
 export let questions = questionsNew;
 export let answers = answersNew;

@@ -1,5 +1,11 @@
-import { addDarkModeSwitch, changeThemeProfile } from "./theme.js";
-import { changeLanguageProfileTo, setLanguageProfilePage } from "./language.js";
+import {
+  addDarkModeSwitch,
+  changeThemeProfile,
+} from "./Components/Theme/theme.js";
+import {
+  changeLanguageProfileTo,
+  setLanguageProfilePage,
+} from "./Components/Language/language.js";
 
 const webElements = {
   body: document.querySelector('[data-js="body"]'),
