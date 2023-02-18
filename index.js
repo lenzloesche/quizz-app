@@ -61,18 +61,6 @@ const webElements = {
   footer: document.querySelector('[data-js="footer"]'),
   questionsQuery: document.querySelectorAll('[data-js="question"]'),
 };
-const {
-  body,
-  bookmarks,
-  answer,
-  card,
-  show_answer,
-  navItemSelected,
-  tag,
-  header,
-  footer,
-  questionsQuery,
-} = webElements;
 
 let darkmodeOn = sessionStorage.getItem("darkModeOn");
 
@@ -89,7 +77,12 @@ if (document.URL.includes("bookmarks.html")) {
   }
 }
 
-changeLanguageTo(questionsQuery, currentLanguage, questionsGerman, questions);
+changeLanguageTo(
+  webElements.questionsQuery,
+  currentLanguage,
+  questionsGerman,
+  questions
+);
 
 for (let i = 0; i < numberOfCards; i++) {
   createAnswerButton(i, webElements, isAnswerShown);

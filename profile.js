@@ -6,6 +6,10 @@ import {
   changeLanguageProfileTo,
   setLanguageProfilePage,
 } from "./Components/Language/language.js";
+import {
+  writeBookmarkCounter,
+  writeQuestionCounter,
+} from "./Components/Profile/displayCounter.js";
 
 const webElements = {
   body: document.querySelector('[data-js="body"]'),
@@ -33,20 +37,9 @@ const darkModeTextGerman = "Dunkler Modus";
 let bookmarked = JSON.parse(sessionStorage.getItem("bookmarked"));
 let questions = JSON.parse(sessionStorage.getItem("questions"));
 
-if (questions != null) {
-  webElements.questionString.textContent = "x" + questions.length;
-}
+writeQuestionCounter(questions, webElements.questionString);
+writeBookmarkCounter(bookmarked, webElements.bookmarkString);
 
-if (bookmarked != null) {
-  let counter = 0;
-  for (const item of bookmarked) {
-    if (item === true) {
-      counter++;
-    }
-  }
-
-  webElements.bookmarkString.textContent = "x" + counter;
-}
 webElements.englishButton.addEventListener("click", () => {
   currentLanguage = "english";
   sessionStorage.setItem("currentLanguage", "english");
