@@ -1,7 +1,6 @@
-import bookmark_black from "./../../Images/Bookmark_black.svg";
-import bookmark_white from "./../../Images/Bookmark_white.svg";
-
 export function createCard(cardNumber, bookmarked, tags) {
+  const bookmark_black = "./../../images/Bookmark_black.svg";
+  const bookmark_white = "./../../images/Bookmark_white.svg";
   let bookmarksImage;
   let bookmarksClass;
   if (bookmarked[cardNumber] === true) {

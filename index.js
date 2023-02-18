@@ -8,14 +8,14 @@ import {
   isAnswerShownNew,
 } from "./Utils/startingCardContent.js";
 import { changeLanguageTo } from "./Components/Language/language.js";
-import { createCard } from "./Components/card/createCard.js";
+import { createCard } from "./Components/Card/createCard.js";
 import { changeTheme } from "./Components/Theme/theme.js";
 import { bookmarkClick } from "./Components/Card/bookmarks.js";
 import { setLanguage } from "./Components/Language/language.js";
 import {
   createAnswerButton,
   changeHideAndShowAnswer,
-} from "./components/card/cards.js";
+} from "./Components/Card/cards.js";
 
 export let questions = questionsNew;
 export let answers = answersNew;

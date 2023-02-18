@@ -1,7 +1,6 @@
-import bookmark_black from "./../../images/bookmark_black.svg";
-import bookmark_white from "./../../images/bookmark_white.svg";
-
 export function bookmarkClick(webElements, bookmarked) {
+  const bookmark_black = "./../../images/bookmark_black.svg";
+  const bookmark_white = "./../../images/bookmark_white.svg";
   for (let i = 0; i < webElements.bookmarks.length; i++) {
     webElements.bookmarks[i].addEventListener("click", () => {
       if (!webElements.card[i].classList.contains("card-dissapear")) {

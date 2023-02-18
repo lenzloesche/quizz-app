@@ -1,5 +1,3 @@
-const htmlDecode = require("html-entities");
-
 export async function getQuestion(webElements) {
   try {
     webElements.buttomRandom.disabled = true;
@@ -9,9 +7,9 @@ export async function getQuestion(webElements) {
     if (fetchJson.ok) {
       const fetchJs = await fetchJson.json();
 
-      const question = htmlDecode.decode(fetchJs.results[0].question);
-      const answer = htmlDecode.decode(fetchJs.results[0].correct_answer);
-      const tag = htmlDecode.decode(fetchJs.results[0].category);
+      const question = fetchJs.results[0].question;
+      const answer = fetchJs.results[0].correct_answer;
+      const tag = fetchJs.results[0].category;
       webElements.inputQuestion.value = question;
       webElements.inputAnswer.value = answer;
       webElements.inputTag1.value = tag;

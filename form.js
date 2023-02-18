@@ -5,12 +5,8 @@ import {
   answersGermanNew,
   tagsNew,
   bookmarkedNew,
-  isAnswerShownNew,
 } from "./Utils/startingCardContent.js";
-import {
-  addNewCardToVariables,
-  initSubmitButton,
-} from "./Components/Card/createCard.js";
+import { addNewCardToVariables } from "./Components/Card/createCard.js";
 import { getQuestion } from "./Components/Form/fetch.js";
 import { changeFormTheme } from "./Components/Theme/theme.js";
 

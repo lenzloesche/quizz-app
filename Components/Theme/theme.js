@@ -1,6 +1,3 @@
-import switch_on from "./../../images/switch_on.gif";
-import switch_off from "./../../images/switch_off.svg";
-
 export function changeTheme(webElements) {
   webElements.body.classList.toggle("body--dark-mode");
   webElements.navItemSelected.classList.toggle("nav--dark-mode");
@@ -46,6 +43,8 @@ export function changeThemeProfile(webElements) {
   webElements.germanButton.classList.toggle("card--dark-mode");
 }
 export function addDarkModeSwitch(webElements, darkmodeOn) {
+  const switch_on = "./../../images/switch_on.gif";
+  const switch_off = "./../../images/switch_off.svg";
   webElements.darkModeSwitch.addEventListener("click", () => {
     if (darkmodeOn == "0" || !darkmodeOn) {
       webElements.darkModeSwitch.src = switch_on;
