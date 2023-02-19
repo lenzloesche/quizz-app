@@ -1,3 +1,5 @@
+import { refreshCounters } from "../Card/createCard.js";
+
 export async function getQuestion(webElements) {
   try {
     webElements.buttomRandom.disabled = true;
@@ -13,7 +15,7 @@ export async function getQuestion(webElements) {
       webElements.inputQuestion.value = unescapeHTML(question);
       webElements.inputAnswer.value = unescapeHTML(answer);
       webElements.inputTag1.value = unescapeHTML(tag);
-
+      refreshCounters(webElements);
       webElements.randomOutput.textContent = "Fetching Successful";
     }
   } catch (error) {

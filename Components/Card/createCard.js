@@ -75,19 +75,42 @@ export function addNewCardToVariables(cardSuite, webElements) {
   cardSuite.bookmarked.push(false);
 }
 
-export function showQuestionAndAnswer(questions, answers) {
+export function showQuestionAndAnswer(cardSuite, number) {
   const questionsQuery = document.querySelectorAll('[data-js="question"]');
   const answersQuery = document.querySelectorAll('[data-js="answer"]');
-  questionsQuery[0].innerText = questions[questions.length - 1];
-  answersQuery[0].innerText = answers[answers.length - 1];
+  const showAnswer = document.querySelectorAll('[data-js="show_answer"]');
+
+  if (cardSuite.language === "english") {
+    questionsQuery[0].innerText = cardSuite.questions[number];
+    answersQuery[0].innerText = cardSuite.answers[number];
+    showAnswer[0].children[0].innerText = "Delete";
+  } else {
+    questionsQuery[0].innerText = cardSuite.questionsGerman[number];
+    answersQuery[0].innerText = cardSuite.answersGerman[number];
+    showAnswer[0].children[0].innerText = "Löschen";
+  }
 }
 
-function addCounter(imput, outputName, length) {
-  const output = document.querySelector(`[data-js="${outputName}"]`);
-  imput.addEventListener("input", (event) => {
-    const lettersleft = length - Number(event.target.value.length);
-    output.textContent = lettersleft + " characters left.";
+function addCounter(input, outputName, length) {
+  input.addEventListener("input", (event) => {
+    refreshCounter(input, outputName, length);
   });
+}
+
+function refreshCounter(input, outputName, length) {
+  const output = document.querySelector(`[data-js="${outputName}"]`);
+  const lettersleft = length - Number(input.value.length);
+  output.textContent = lettersleft + " characters left.";
+}
+
+export function refreshCounters(webElements) {
+  refreshCounter(webElements.inputAnswer, "counterAnswer", 150);
+  refreshCounter(webElements.inputQuestion, "counterQuestion", 150);
+  refreshCounter(webElements.inputAnswerGerman, "counterAnswerGerman", 150);
+  refreshCounter(webElements.inputQuestionGerman, "counterQuestionGerman", 150);
+  refreshCounter(webElements.inputTag1, "counterTag1", 15);
+  refreshCounter(webElements.inputTag2, "counterTag2", 15);
+  refreshCounter(webElements.inputTag3, "counterTag3", 15);
 }
 
 export function addCounters(webElements) {
@@ -98,4 +121,19 @@ export function addCounters(webElements) {
   addCounter(webElements.inputTag1, "counterTag1", 15);
   addCounter(webElements.inputTag2, "counterTag2", 15);
   addCounter(webElements.inputTag3, "counterTag3", 15);
+}
+
+export function makeDeleteButtonWork(cardSuite, position) {
+  const button = document.querySelectorAll('[data-js="show_answer"]');
+  button[0].classList.add("card__button--delete");
+  const card = document.querySelectorAll('[data-js="card"]');
+  button[0].addEventListener("click", () => {
+    cardSuite.questions.splice(position, 1);
+    cardSuite.answers.splice(position, 1);
+    cardSuite.answersGerman.splice(position, 1);
+    cardSuite.questionsGerman.splice(position, 1);
+    cardSuite.tags.splice(position, 1);
+    cardSuite.bookmarked.splice(position, 1);
+    card[0].classList.add("display-none");
+  });
 }

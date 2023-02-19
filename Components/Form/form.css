@@ -38,3 +38,6 @@ button.input:hover {
   text-align: right;
   margin-right: 10px;
 }
+.card__button--delete {
+  background-color: rgb(154, 54, 54);
+}
