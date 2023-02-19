@@ -109,3 +109,6 @@
 .card-dissapear {
   opacity: 0%;
 }
+.shadow {
+  box-shadow: 5px 5px 10px black;
+}

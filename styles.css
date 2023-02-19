@@ -4,25 +4,3 @@
 @import "/Components/HeaderFooter/headerfooter.css";
 @import "/Components/Form/form.css";
 @import "/Components/Theme/theme.css";
-
-.shadow {
-  box-shadow: 5px 5px 10px black;
-}
-
-@media only screen and (min-width: 600px) {
-  .emptycontainer {
-    height: 100px;
-    width: 200px;
-  }
-}
-
-.hugeletters {
-  font-size: 40px;
-}
-
-.flexcolumn {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-evenly;
-}
