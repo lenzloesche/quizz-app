@@ -6,19 +6,25 @@ import {
   tagsNew,
   bookmarkedNew,
 } from "./Utils/startingCardContent.js";
-import { addNewCardToVariables } from "./Components/Card/createCard.js";
+import {
+  addNewCardToVariables,
+  createCard,
+} from "./Components/Card/createCard.js";
 import { getQuestion } from "./Components/Form/fetch.js";
-import { changeFormTheme } from "./Components/Theme/theme.js";
+import {
+  changeFormTheme,
+  formChangeThemeOfCards,
+} from "./Components/Theme/theme.js";
 
 const webElements = {
   form: document.querySelector('[data-js="form"]'),
   main: document.querySelector('[data-js="main"]'),
   body: document.querySelector('[data-js="body"]'),
-  inputQuestion: document.querySelector('[data-js="question"]'),
-  inputAnswer: document.querySelector('[data-js="answer"]'),
-  inputTag1: document.querySelector('[data-js="tag1"]'),
-  inputTag2: document.querySelector('[data-js="tag2"]'),
-  inputTag3: document.querySelector('[data-js="tag3"]'),
+  inputQuestion: document.querySelector('[data-js="question-input"]'),
+  inputAnswer: document.querySelector('[data-js="answer-input"]'),
+  inputTag1: document.querySelector('[data-js="tag1-input"]'),
+  inputTag2: document.querySelector('[data-js="tag2-input"]'),
+  inputTag3: document.querySelector('[data-js="tag3-input"]'),
   buttomRandom: document.querySelector('[data-js="button_random"]'),
   randomOutput: document.querySelector('[data-js="randomOutput"]'),
 };
@@ -50,66 +56,18 @@ let { questions, answers, questionsGerman, answersGerman, tags, bookmarked } =
 webElements.form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  /* const formData = new FormData(event.target);
-  const dataObject = Object.fromEntries(formData);
-
-  const section = document.createElement("section");
-  section.classList.add("card");
-  main.append(section);
-
-  const img = document.createElement("img");
-  img.classList.add("card__bookmark");
-  img.src = "images/bookmark_white.svg";
-  section.append(img);
-
-  const question = document.createElement("p");
-  question.classList.add("card__question", "card__bigtext");
-  question.textContent = inputQuestion.value;
-  section.append(question);
-
-  const showanswer = document.createElement("button");
-  showanswer.classList.add("card__showanswer", "shadow");
-
-  section.append(showanswer);
-
-  const showanswerParagraph = document.createElement("p");
-  showanswerParagraph.classList.add("card__bigtext");
-  showanswerParagraph.textContent = "Hide Answer";
-  showanswer.append(showanswerParagraph);
-
-  const answer = document.createElement("p");
-  answer.classList.add("card__answer", "card__bigtext");
-
-  answer.textContent = inputAnswer.value;
-  section.append(answer);
-
-  let tagList = "";
-  if (inputTag1.value || inputTag2.value || inputTag3.value) {
-    tagList = document.createElement("ul");
-    tagList.classList.add("card__tags");
-    section.append(tagList);
-  }
-  if (inputTag1.value) {
-    addTagToList(inputTag1, tagList);
-  }
-
-  if (inputTag2.value) {
-    addTagToList(inputTag2, tagList);
-  }
-
-  if (inputTag3.value) {
-    addTagToList(inputTag3, tagList);
-  }
-
-  if (darkmodeOn == "1") {
-    answer.classList.toggle("card--dark-mode");
-    showanswer.classList.toggle("card--dark-mode");
-    section.classList.toggle("card--dark-mode");
-  } */
-
   getSaved();
   addNewCardToVariables(cardSuite, webElements);
   saveCard();
+  createCard(
+    cardSuite.questions.length - 1,
+    cardSuite.bookmarked,
+    cardSuite.tags
+  );
+  if (darkmodeOn == "1") {
+    formChangeThemeOfCards();
+  }
+
   event.target.reset();
 });
 

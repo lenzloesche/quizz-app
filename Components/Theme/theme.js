@@ -92,3 +92,30 @@ export function changeFormTheme(webElements) {
   header.classList.toggle("card--dark-mode");
   footer.classList.toggle("card--dark-mode");
 }
+
+export function formChangeThemeOfCards() {
+  const answers = document.querySelectorAll('[data-js="answer"]');
+  const show_answers = document.querySelectorAll('[data-js="show_answer"]');
+  const cards = document.querySelectorAll('[data-js="card"]');
+  const tags = document.querySelectorAll('[data-js="tag"]');
+
+  /* for (let number = 0; number < answers.length; number++) {
+    console.log(number);
+    answers[number].classList.toggle("card--dark-mode");
+    show_answers[number].classList.toggle("card--dark-mode");
+    cards[number].classList.toggle("card--dark-mode");
+  } */
+
+  cards.forEach(function (element) {
+    element.classList.add("card--dark-mode");
+  });
+  show_answers.forEach(function (element) {
+    element.classList.add("card--dark-mode");
+  });
+  tags.forEach(function (element) {
+    element.classList.add("card--dark-mode");
+  });
+  answers.forEach(function (element) {
+    element.classList.add("card--dark-mode");
+  });
+}
