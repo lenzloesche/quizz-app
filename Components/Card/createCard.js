@@ -109,6 +109,16 @@ export function addCounters(webElements) {
   addCounter(webElements.inputTag3, "counterTag3", 15);
 }
 
-export function makeDeleteButtonWork(position) {
-  button.addEventListener("click", (event) => {});
+export function makeDeleteButtonWork(cardSuite, position) {
+  const button = document.querySelectorAll('[data-js="show_answer"]');
+  const card = document.querySelectorAll('[data-js="card"]');
+  button[0].addEventListener("click", () => {
+    cardSuite.questions.splice(position, 1);
+    cardSuite.answers.splice(position, 1);
+    cardSuite.answersGerman.splice(position, 1);
+    cardSuite.questionsGerman.splice(position, 1);
+    cardSuite.tags.splice(position, 1);
+    cardSuite.bookmarked.splice(position, 1);
+    card[0].classList.add("display-none");
+  });
 }

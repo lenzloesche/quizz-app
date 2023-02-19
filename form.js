@@ -11,6 +11,7 @@ import {
   createCard,
   showQuestionAndAnswer,
   addCounters,
+  makeDeleteButtonWork,
 } from "./Components/Card/createCard.js";
 import { getQuestion } from "./Components/Form/fetch.js";
 import {
@@ -61,6 +62,8 @@ webElements.form.addEventListener("submit", (event) => {
   const cardContainer = document.querySelector('[data-js="cardContainer"]');
   cardContainer.prepend(card);
   showQuestionAndAnswer(cardSuite, cardSuite.questions.length - 1);
+  makeDeleteButtonWork(cardSuite, cardSuite.questions.length - 1);
+
   if (darkmodeOn == "1") {
     formChangeThemeOfCards();
   }
@@ -119,6 +122,7 @@ for (let cardNumber = 0; cardNumber < cardSuite.answers.length; cardNumber++) {
   const card = createCard(cardNumber, cardSuite.bookmarked, cardSuite.tags);
   cardContainer.prepend(card);
   showQuestionAndAnswer(cardSuite, cardNumber);
+  makeDeleteButtonWork(cardSuite, cardNumber);
 }
 if (darkmodeOn == "1") {
   formChangeThemeOfCards();
