@@ -99,13 +99,6 @@ export function formChangeThemeOfCards() {
   const cards = document.querySelectorAll('[data-js="card"]');
   const tags = document.querySelectorAll('[data-js="tag"]');
 
-  /* for (let number = 0; number < answers.length; number++) {
-    console.log(number);
-    answers[number].classList.toggle("card--dark-mode");
-    show_answers[number].classList.toggle("card--dark-mode");
-    cards[number].classList.toggle("card--dark-mode");
-  } */
-
   cards.forEach(function (element) {
     element.classList.add("card--dark-mode");
   });

@@ -47,7 +47,9 @@ for (const bookmark of bookmarked) {
 let numberOfCards = questions.length;
 
 for (let cardNumber = 0; cardNumber < numberOfCards; cardNumber++) {
-  createCard(cardNumber, bookmarked, tags);
+  const main = document.querySelector('[data-js="main"]');
+  const card = createCard(cardNumber, bookmarked, tags);
+  main.append(card);
 }
 
 let darkmodeOn = sessionStorage.getItem("darkModeOn");

@@ -12,8 +12,7 @@ export function createCard(cardNumber, bookmarked, tags) {
   }
 
   const section = document.createElement("section");
-  const main = document.querySelector('[data-js="main"]');
-  main.append(section);
+
   if (
     document.URL.includes("bookmarks.html") &&
     bookmarked[cardNumber] === false
@@ -50,6 +49,7 @@ export function createCard(cardNumber, bookmarked, tags) {
     }
     section.children[4].innerHTML = innerHTML;
   }
+  return section;
 }
 
 export function addNewCardToVariables(cardSuite, webElements) {
@@ -64,3 +64,12 @@ export function addNewCardToVariables(cardSuite, webElements) {
   ]);
   cardSuite.bookmarked.push(false);
 }
+
+/* 
+export function showQuestionAndAnswer(){
+  const questions = document.querySelectorAll('[data-js="question"]');
+  const answers = document.querySelectorAll('[data-js="answer"]');
+
+questions.innerText=
+answers.innerText=
+} */

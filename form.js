@@ -28,19 +28,6 @@ const webElements = {
   buttomRandom: document.querySelector('[data-js="button_random"]'),
   randomOutput: document.querySelector('[data-js="randomOutput"]'),
 };
-/* 
-let {
-  form,
-  main,
-  body,
-  inputQuestion,
-  inputAnswer,
-  inputTag1,
-  inputTag2,
-  inputTag3,
-  buttomRandom,
-  randomOutput,
-} = webElements; */
 
 const cardSuite = {
   questions: questionsNew,
@@ -59,11 +46,13 @@ webElements.form.addEventListener("submit", (event) => {
   getSaved();
   addNewCardToVariables(cardSuite, webElements);
   saveCard();
-  createCard(
+  const card = createCard(
     cardSuite.questions.length - 1,
     cardSuite.bookmarked,
     cardSuite.tags
   );
+  const main = document.querySelector('[data-js="cardContainer"]');
+  main.prepend(card);
   if (darkmodeOn == "1") {
     formChangeThemeOfCards();
   }
