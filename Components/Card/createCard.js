@@ -125,6 +125,7 @@ export function addCounters(webElements) {
 
 export function makeDeleteButtonWork(cardSuite, position) {
   const button = document.querySelectorAll('[data-js="show_answer"]');
+  button[0].classList.add("card__button--delete");
   const card = document.querySelectorAll('[data-js="card"]');
   button[0].addEventListener("click", () => {
     cardSuite.questions.splice(position, 1);

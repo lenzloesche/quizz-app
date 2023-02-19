@@ -85,6 +85,8 @@ export function changeFormTheme(webElements) {
   webElements.inputTag1.classList.toggle("card--dark-mode");
   webElements.inputTag2.classList.toggle("card--dark-mode");
   webElements.inputTag3.classList.toggle("card--dark-mode");
+  webElements.inputQuestionGerman.classList.toggle("card--dark-mode");
+  webElements.inputAnswerGerman.classList.toggle("card--dark-mode");
   webElements.button = document.querySelector('[data-js="button"]');
   webElements.button.classList.toggle("card--dark-mode");
   webElements.buttomRandom.classList.toggle("card--dark-mode");

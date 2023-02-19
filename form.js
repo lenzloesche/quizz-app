@@ -33,6 +33,10 @@ const webElements = {
     '[data-js="question-german-input"]'
   ),
   inputAnswerGerman: document.querySelector('[data-js="answer-german-input"]'),
+  inputQuestionGerman: document.querySelector(
+    '[data-js="question-german-input"]'
+  ),
+  inputAnswerGerman: document.querySelector('[data-js="answer-german-input"]'),
   buttomRandom: document.querySelector('[data-js="button_random"]'),
   randomOutput: document.querySelector('[data-js="randomOutput"]'),
 };
