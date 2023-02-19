@@ -9,7 +9,7 @@ export function bookmarkClick(bookmarked) {
   }
 }
 
-function bookmarkClickFunction(bookmarked, i) {
+export function bookmarkClickFunction(bookmarked, i) {
   const bookmarks = document.querySelectorAll('[data-js="bookmark"]');
   const bookmark_black = "./../../images/bookmark_black.svg";
   const bookmark_white = "./../../images/bookmark_white.svg";
@@ -27,16 +27,15 @@ function bookmarkClickFunction(bookmarked, i) {
     bookmarks[i].src = bookmark_white;
     bookmarks[i].classList.remove("card__bookmark-big");
   }
-  console.log(bookmarked);
   sessionStorage.setItem("bookmarked", JSON.stringify(bookmarked));
 }
 
-/* export function removeEventlistener() {
+export function removeEventlistener() {
   const bookmarks = document.querySelectorAll('[data-js="bookmark"]');
   for (let i = 0; i < bookmarks.length; i++) {
     bookmarks[i].removeEventListener("click", bookmarkClickFunction);
   }
-} */
+}
 
 export function magnifyBookmark() {
   const bookmarks = document.querySelectorAll('[data-js="bookmark"]');

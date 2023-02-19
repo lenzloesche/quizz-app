@@ -19,7 +19,10 @@ import {
   changeFormTheme,
   formChangeThemeOfCards,
 } from "./Components/Theme/theme.js";
-import { bookmarkClick } from "./components/card/bookmarks.js";
+import {
+  bookmarkClick,
+  bookmarkClickFunction,
+} from "./components/card/bookmarks.js";
 
 const webElements = {
   form: document.querySelector('[data-js="form"]'),
@@ -69,7 +72,9 @@ webElements.form.addEventListener("submit", (event) => {
   cardContainer.prepend(card);
   showQuestionAndAnswer(cardSuite, cardSuite.questions.length - 1);
   makeDeleteButtonWork(cardSuite, cardSuite.questions.length - 1);
-
+  webElements.bookmarks[i].addEventListener("click", function () {
+    bookmarkClickFunction(cardSuite.bookmarked, 0);
+  });
   if (darkmodeOn == "1") {
     formChangeThemeOfCards();
   }
