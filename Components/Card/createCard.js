@@ -83,11 +83,11 @@ export function showQuestionAndAnswer(cardSuite, number) {
   if (cardSuite.language === "english") {
     questionsQuery[0].innerText = cardSuite.questions[number];
     answersQuery[0].innerText = cardSuite.answers[number];
-    showAnswer[0].children[0].innerText = "Delete";
+    showAnswer[0].children[0].innerText = "Delete Card";
   } else {
     questionsQuery[0].innerText = cardSuite.questionsGerman[number];
     answersQuery[0].innerText = cardSuite.answersGerman[number];
-    showAnswer[0].children[0].innerText = "Löschen";
+    showAnswer[0].children[0].innerText = "Lösche Karte";
   }
 }
 
