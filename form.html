@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <script src="formBundle.js" type="module"></script>
+    <script src="form.js" type="module"></script>
     <title>Lenz' Quiz App - Add Card</title>
   </head>
   <body data-js="body">
@@ -29,7 +29,7 @@
             name="question"
             id="question"
             class="input"
-            data-js="question"
+            data-js="question-input"
             maxlength="150"
             required
           ></textarea>
@@ -39,7 +39,7 @@
             name="answer"
             id="answer"
             class="input"
-            data-js="answer"
+            data-js="answer-input"
             maxlength="150"
             required
           ></textarea>
@@ -51,7 +51,7 @@
             id="tag1"
             class="input"
             maxlength="15"
-            data-js="tag1"
+            data-js="tag1-input"
           />
           <label for="tag2" class="form__label">Tag 2 (optional): </label>
           <input
@@ -60,7 +60,7 @@
             id="tag2"
             class="input"
             maxlength="15"
-            data-js="tag2"
+            data-js="tag2-input"
           />
           <label for="tag3" class="form__label">Tag 3 (optional): </label>
           <input
@@ -69,11 +69,12 @@
             id="tag3"
             class="input"
             maxlength="15"
-            data-js="tag3"
+            data-js="tag3-input"
           />
           <button data-js="button" class="input" type="submit">Add Card</button>
         </form>
       </section>
+      <section data-js="cardContainer"></section>
     </main>
 
     <footer class="front" data-js="footer">
@@ -97,7 +98,7 @@
           />
         </div>
       </a>
-      <a href="add.html" aria-label="link to add.html page">
+      <a href="form.html" aria-label="link to form.html page">
         <div data-js="nav__item-selected" class="nav__item nav__item-color">
           <img
             src="/images/add.svg"

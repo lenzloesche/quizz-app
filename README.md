@@ -11,6 +11,7 @@ This project was coded for the "neue fische" boot camp.
 - dark mode
 - change language to German
 - bookmark and question counter
+- generate random question from API
 
 ## currently not working:
 

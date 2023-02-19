@@ -1,45 +1,6 @@
 @import "global.css";
-@import "/components/card.css";
-@import "/components/profile.css";
-@import "/components/headerfooter.css";
-@import "/components/form.css";
-
-.shadow {
-  box-shadow: 5px 5px 10px black;
-}
-
-@media only screen and (min-width: 600px) {
-  .emptycontainer {
-    height: 100px;
-    width: 200px;
-  }
-}
-
-.hugeletters {
-  font-size: 40px;
-}
-
-.flexcolumn {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-evenly;
-}
-
-.body--dark-mode {
-  background-color: #0a0d11;
-  color: #c9d1d9;
-}
-
-.dark-mode__transition {
-  transition: background-color 0.5s linear;
-}
-
-.card--dark-mode {
-  background-color: #0d1117;
-  color: #c9d1d9;
-}
-
-.nav--dark-mode {
-  background-color: #1f2837;
-}
+@import "/Components/Card/card.css";
+@import "/Components/Profile/profile.css";
+@import "/Components/HeaderFooter/headerfooter.css";
+@import "/Components/Form/form.css";
+@import "/Components/Theme/theme.css";

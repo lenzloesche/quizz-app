@@ -59,7 +59,7 @@
 }
 .card__bookmark:hover {
   cursor: pointer;
-  content: url(../images/bookmark_black.svg);
+  content: url(../../images/bookmark_black.svg);
 }
 
 .card__bookmark-big {
@@ -108,4 +108,7 @@
 
 .card-dissapear {
   opacity: 0%;
+}
+.shadow {
+  box-shadow: 5px 5px 10px black;
 }
