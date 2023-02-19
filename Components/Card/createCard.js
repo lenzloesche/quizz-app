@@ -55,8 +55,18 @@ export function createCard(cardNumber, bookmarked, tags) {
 export function addNewCardToVariables(cardSuite, webElements) {
   cardSuite.questions.push(webElements.inputQuestion.value);
   cardSuite.answers.push(webElements.inputAnswer.value);
-  cardSuite.questionsGerman.push(webElements.inputQuestion.value);
-  cardSuite.answersGerman.push(webElements.inputAnswer.value);
+
+  if (webElements.inputQuestionGerman.value === "") {
+    cardSuite.questionsGerman.push(webElements.inputQuestion.value);
+  } else {
+    cardSuite.questionsGerman.push(webElements.inputQuestionGerman.value);
+  }
+  if (webElements.inputAnswerGerman.value === "") {
+    cardSuite.answersGerman.push(webElements.inputAnswer.value);
+  } else {
+    cardSuite.answersGerman.push(webElements.inputAnswerGerman.value);
+  }
+
   cardSuite.tags.push([
     webElements.inputTag1.value,
     webElements.inputTag2.value,
@@ -70,4 +80,22 @@ export function showQuestionAndAnswer(questions, answers) {
   const answersQuery = document.querySelectorAll('[data-js="answer"]');
   questionsQuery[0].innerText = questions[questions.length - 1];
   answersQuery[0].innerText = answers[answers.length - 1];
+}
+
+function addCounter(imput, outputName, length) {
+  const output = document.querySelector(`[data-js="${outputName}"]`);
+  imput.addEventListener("input", (event) => {
+    const lettersleft = length - Number(event.target.value.length);
+    output.textContent = lettersleft + " characters left.";
+  });
+}
+
+export function addCounters(webElements) {
+  addCounter(webElements.inputAnswer, "counterAnswer", 150);
+  addCounter(webElements.inputQuestion, "counterQuestion", 150);
+  addCounter(webElements.inputAnswerGerman, "counterAnswerGerman", 150);
+  addCounter(webElements.inputQuestionGerman, "counterQuestionGerman", 150);
+  addCounter(webElements.inputTag1, "counterTag1", 15);
+  addCounter(webElements.inputTag2, "counterTag2", 15);
+  addCounter(webElements.inputTag3, "counterTag3", 15);
 }

@@ -10,9 +10,9 @@ export async function getQuestion(webElements) {
       const question = fetchJs.results[0].question;
       const answer = fetchJs.results[0].correct_answer;
       const tag = fetchJs.results[0].category;
-      webElements.inputQuestion.value = question;
-      webElements.inputAnswer.value = answer;
-      webElements.inputTag1.value = tag;
+      webElements.inputQuestion.value = unescapeHTML(question);
+      webElements.inputAnswer.value = unescapeHTML(answer);
+      webElements.inputTag1.value = unescapeHTML(tag);
 
       webElements.randomOutput.textContent = "Fetching Successful";
     }
@@ -24,4 +24,37 @@ export async function getQuestion(webElements) {
     webElements.buttomRandom.disabled = false;
     webElements.buttomRandom.textContent = "Generate Random Card";
   }
+}
+
+var htmlEntities = {
+  nbsp: " ",
+  cent: "¢",
+  pound: "£",
+  yen: "¥",
+  euro: "€",
+  copy: "©",
+  reg: "®",
+  lt: "<",
+  gt: ">",
+  quot: '"',
+  amp: "&",
+  apos: "'",
+};
+
+function unescapeHTML(str) {
+  return str.replace(/\&([^;]+);/g, function (entity, entityCode) {
+    var match;
+
+    if (entityCode in htmlEntities) {
+      return htmlEntities[entityCode];
+      /*eslint no-cond-assign: 0*/
+    } else if ((match = entityCode.match(/^#x([\da-fA-F]+)$/))) {
+      return String.fromCharCode(parseInt(match[1], 16));
+      /*eslint no-cond-assign: 0*/
+    } else if ((match = entityCode.match(/^#(\d+)$/))) {
+      return String.fromCharCode(~~match[1]);
+    } else {
+      return entity;
+    }
+  });
 }
