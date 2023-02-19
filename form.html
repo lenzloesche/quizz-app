@@ -33,7 +33,7 @@
             maxlength="150"
             required
           ></textarea>
-          <p class="counter" data-js="question-counter">150 characters left</p>
+          <p class="counter" data-js="counterQuestion">150 characters left</p>
           <label for="answer" class="form__label">Answer: </label>
           <textarea
             name="answer"
@@ -43,7 +43,7 @@
             maxlength="150"
             required
           ></textarea>
-          <p class="counter" data-js="answer-counter">150 characters left</p>
+          <p class="counter" data-js="counterAnswer">150 characters left</p>
           <label for="tag1" class="form__label">Tag 1 (optional): </label>
           <input
             type="text"
@@ -53,6 +53,7 @@
             maxlength="15"
             data-js="tag1-input"
           />
+          <p class="counter" data-js="counterTag1">15 characters left</p>
           <label for="tag2" class="form__label">Tag 2 (optional): </label>
           <input
             type="text"
@@ -62,6 +63,8 @@
             maxlength="15"
             data-js="tag2-input"
           />
+
+          <p class="counter" data-js="counterTag2">15 characters left</p>
           <label for="tag3" class="form__label">Tag 3 (optional): </label>
           <input
             type="text"
@@ -71,6 +74,36 @@
             maxlength="15"
             data-js="tag3-input"
           />
+
+          <p class="counter" data-js="counterTag3">15 characters left</p>
+          <label for="questionGerman" class="form__label"
+            >Question German (optional):
+          </label>
+          <textarea
+            name="questionGerman"
+            id="questionGerman"
+            class="input"
+            data-js="question-german-input"
+            maxlength="150"
+          ></textarea>
+
+          <p class="counter" data-js="counterQuestionGerman">
+            150 characters left
+          </p>
+          <label for="answerGerman" class="form__label"
+            >Answer German (optional):
+          </label>
+          <textarea
+            name="answerGerman"
+            id="answerGerman"
+            class="input"
+            data-js="answer-german-input"
+            maxlength="150"
+          ></textarea>
+          <p class="counter" data-js="counterAnswerGerman">
+            150 characters left
+          </p>
+
           <button data-js="button" class="input" type="submit">Add Card</button>
         </form>
       </section>

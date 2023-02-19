@@ -10,6 +10,7 @@ import {
   addNewCardToVariables,
   createCard,
   showQuestionAndAnswer,
+  addCounters,
 } from "./Components/Card/createCard.js";
 import { getQuestion } from "./Components/Form/fetch.js";
 import {
@@ -26,6 +27,10 @@ const webElements = {
   inputTag1: document.querySelector('[data-js="tag1-input"]'),
   inputTag2: document.querySelector('[data-js="tag2-input"]'),
   inputTag3: document.querySelector('[data-js="tag3-input"]'),
+  inputQuestionGerman: document.querySelector(
+    '[data-js="question-german-input"]'
+  ),
+  inputAnswerGerman: document.querySelector('[data-js="answer-german-input"]'),
   buttomRandom: document.querySelector('[data-js="button_random"]'),
   randomOutput: document.querySelector('[data-js="randomOutput"]'),
 };
@@ -75,7 +80,6 @@ function getSaved() {
     bookmarked = JSON.parse(sessionStorage.getItem("bookmarked"));
   }
 }
-//addNewCardToVariables(cardSuite, webElements);
 
 function saveCard() {
   sessionStorage.setItem("questions", JSON.stringify(questions));
@@ -86,27 +90,7 @@ function saveCard() {
   sessionStorage.setItem("bookmarked", JSON.stringify(bookmarked));
 }
 
-/* function addTagToList(inputTag, tagList) {
-  const tag = document.createElement("li");
-  tag.classList.add("card__tag", "shadow");
-  tag.textContent = "#" + inputTag.value;
-  if (darkmodeOn == "1") {
-    tag.classList.toggle("card--dark-mode");
-  }
-  tagList.append(tag);
-} */
-
-const counterQuestion = document.querySelector('[data-js="question-counter"]');
-const counterAnswer = document.querySelector('[data-js="answer-counter"]');
-
-webElements.inputQuestion.addEventListener("input", (event) => {
-  const lettersleft = 150 - Number(event.target.value.length);
-  counterQuestion.textContent = lettersleft + " characters left.";
-});
-webElements.inputAnswer.addEventListener("input", (event) => {
-  const lettersleft = 150 - Number(event.target.value.length);
-  counterAnswer.textContent = lettersleft + " characters left.";
-});
+addCounters(webElements);
 
 let darkmodeOn = sessionStorage.getItem("darkModeOn");
 
