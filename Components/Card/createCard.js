@@ -91,12 +91,26 @@ export function showQuestionAndAnswer(cardSuite, number) {
   }
 }
 
-function addCounter(imput, outputName, length) {
-  const output = document.querySelector(`[data-js="${outputName}"]`);
-  imput.addEventListener("input", (event) => {
-    const lettersleft = length - Number(event.target.value.length);
-    output.textContent = lettersleft + " characters left.";
+function addCounter(input, outputName, length) {
+  input.addEventListener("input", (event) => {
+    refreshCounter(input, outputName, length);
   });
+}
+
+function refreshCounter(input, outputName, length) {
+  const output = document.querySelector(`[data-js="${outputName}"]`);
+  const lettersleft = length - Number(input.value.length);
+  output.textContent = lettersleft + " characters left.";
+}
+
+export function refreshCounters(webElements) {
+  refreshCounter(webElements.inputAnswer, "counterAnswer", 150);
+  refreshCounter(webElements.inputQuestion, "counterQuestion", 150);
+  refreshCounter(webElements.inputAnswerGerman, "counterAnswerGerman", 150);
+  refreshCounter(webElements.inputQuestionGerman, "counterQuestionGerman", 150);
+  refreshCounter(webElements.inputTag1, "counterTag1", 15);
+  refreshCounter(webElements.inputTag2, "counterTag2", 15);
+  refreshCounter(webElements.inputTag3, "counterTag3", 15);
 }
 
 export function addCounters(webElements) {

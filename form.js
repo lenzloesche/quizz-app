@@ -12,6 +12,7 @@ import {
   showQuestionAndAnswer,
   addCounters,
   makeDeleteButtonWork,
+  refreshCounters,
 } from "./Components/Card/createCard.js";
 import { getQuestion } from "./Components/Form/fetch.js";
 import {
@@ -69,6 +70,7 @@ webElements.form.addEventListener("submit", (event) => {
   }
 
   event.target.reset();
+  refreshCounters(webElements);
 });
 
 function getSaved() {
