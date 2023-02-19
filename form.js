@@ -43,14 +43,15 @@ const cardSuite = {
   tags: tagsNew,
   bookmarked: bookmarkedNew,
 };
-let { questions, answers, questionsGerman, answersGerman, tags, bookmarked } =
-  cardSuite;
 
 webElements.form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   getSaved();
+  console.log(cardSuite);
   addNewCardToVariables(cardSuite, webElements);
+  console.log(cardSuite);
+
   saveCard();
   const card = createCard(
     cardSuite.questions.length - 1,
@@ -69,25 +70,35 @@ webElements.form.addEventListener("submit", (event) => {
 
 function getSaved() {
   if (sessionStorage.getItem("questions") != null) {
-    questions = JSON.parse(sessionStorage.getItem("questions"));
-    questionsGerman = JSON.parse(sessionStorage.getItem("questionsGerman"));
-    answers = JSON.parse(sessionStorage.getItem("answers"));
-    answersGerman = JSON.parse(sessionStorage.getItem("answersGerman"));
-    tags = JSON.parse(sessionStorage.getItem("tags"));
-    bookmarked = JSON.parse(sessionStorage.getItem("bookmarked"));
+    cardSuite.questions = JSON.parse(sessionStorage.getItem("questions"));
+    cardSuite.questionsGerman = JSON.parse(
+      sessionStorage.getItem("questionsGerman")
+    );
+    cardSuite.answers = JSON.parse(sessionStorage.getItem("answers"));
+    cardSuite.answersGerman = JSON.parse(
+      sessionStorage.getItem("answersGerman")
+    );
+    cardSuite.tags = JSON.parse(sessionStorage.getItem("tags"));
+    cardSuite.bookmarked = JSON.parse(sessionStorage.getItem("bookmarked"));
   }
   if (sessionStorage.getItem("bookmarked") != null) {
-    bookmarked = JSON.parse(sessionStorage.getItem("bookmarked"));
+    cardSuite.bookmarked = JSON.parse(sessionStorage.getItem("bookmarked"));
   }
 }
 
 function saveCard() {
-  sessionStorage.setItem("questions", JSON.stringify(questions));
-  sessionStorage.setItem("questionsGerman", JSON.stringify(questionsGerman));
-  sessionStorage.setItem("answers", JSON.stringify(answers));
-  sessionStorage.setItem("answersGerman", JSON.stringify(answersGerman));
-  sessionStorage.setItem("tags", JSON.stringify(tags));
-  sessionStorage.setItem("bookmarked", JSON.stringify(bookmarked));
+  sessionStorage.setItem("questions", JSON.stringify(cardSuite.questions));
+  sessionStorage.setItem(
+    "questionsGerman",
+    JSON.stringify(cardSuite.questionsGerman)
+  );
+  sessionStorage.setItem("answers", JSON.stringify(cardSuite.answers));
+  sessionStorage.setItem(
+    "answersGerman",
+    JSON.stringify(cardSuite.answersGerman)
+  );
+  sessionStorage.setItem("tags", JSON.stringify(cardSuite.tags));
+  sessionStorage.setItem("bookmarked", JSON.stringify(cardSuite.bookmarked));
 }
 
 addCounters(webElements);
