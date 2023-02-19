@@ -19,6 +19,7 @@ import {
   changeFormTheme,
   formChangeThemeOfCards,
 } from "./Components/Theme/theme.js";
+import { bookmarkClick } from "./components/card/bookmarks.js";
 
 const webElements = {
   form: document.querySelector('[data-js="form"]'),
@@ -133,3 +134,5 @@ for (let cardNumber = 0; cardNumber < cardSuite.answers.length; cardNumber++) {
 if (darkmodeOn == "1") {
   formChangeThemeOfCards();
 }
+
+bookmarkClick(cardSuite.bookmarked);
