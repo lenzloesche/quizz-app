@@ -9,6 +9,7 @@ import {
 import {
   addNewCardToVariables,
   createCard,
+  showQuestionAndAnswer,
 } from "./Components/Card/createCard.js";
 import { getQuestion } from "./Components/Form/fetch.js";
 import {
@@ -53,6 +54,7 @@ webElements.form.addEventListener("submit", (event) => {
   );
   const main = document.querySelector('[data-js="cardContainer"]');
   main.prepend(card);
+  showQuestionAndAnswer(cardSuite.questions, cardSuite.answers);
   if (darkmodeOn == "1") {
     formChangeThemeOfCards();
   }

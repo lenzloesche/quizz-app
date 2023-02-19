@@ -65,11 +65,9 @@ export function addNewCardToVariables(cardSuite, webElements) {
   cardSuite.bookmarked.push(false);
 }
 
-/* 
-export function showQuestionAndAnswer(){
-  const questions = document.querySelectorAll('[data-js="question"]');
-  const answers = document.querySelectorAll('[data-js="answer"]');
-
-questions.innerText=
-answers.innerText=
-} */
+export function showQuestionAndAnswer(questions, answers) {
+  const questionsQuery = document.querySelectorAll('[data-js="question"]');
+  const answersQuery = document.querySelectorAll('[data-js="answer"]');
+  questionsQuery[0].innerText = questions[questions.length - 1];
+  answersQuery[0].innerText = answers[answers.length - 1];
+}
