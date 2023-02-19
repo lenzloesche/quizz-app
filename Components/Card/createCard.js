@@ -75,11 +75,20 @@ export function addNewCardToVariables(cardSuite, webElements) {
   cardSuite.bookmarked.push(false);
 }
 
-export function showQuestionAndAnswer(questions, answers) {
+export function showQuestionAndAnswer(cardSuite, number) {
   const questionsQuery = document.querySelectorAll('[data-js="question"]');
   const answersQuery = document.querySelectorAll('[data-js="answer"]');
-  questionsQuery[0].innerText = questions[questions.length - 1];
-  answersQuery[0].innerText = answers[answers.length - 1];
+  const showAnswer = document.querySelectorAll('[data-js="show_answer"]');
+
+  if (cardSuite.language === "english") {
+    questionsQuery[0].innerText = cardSuite.questions[number];
+    answersQuery[0].innerText = cardSuite.answers[number];
+    showAnswer[0].children[0].innerText = "Delete";
+  } else {
+    questionsQuery[0].innerText = cardSuite.questionsGerman[number];
+    answersQuery[0].innerText = cardSuite.answersGerman[number];
+    showAnswer[0].children[0].innerText = "Löschen";
+  }
 }
 
 function addCounter(imput, outputName, length) {
@@ -98,4 +107,8 @@ export function addCounters(webElements) {
   addCounter(webElements.inputTag1, "counterTag1", 15);
   addCounter(webElements.inputTag2, "counterTag2", 15);
   addCounter(webElements.inputTag3, "counterTag3", 15);
+}
+
+export function makeDeleteButtonWork(position) {
+  button.addEventListener("click", (event) => {});
 }

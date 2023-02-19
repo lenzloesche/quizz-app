@@ -42,15 +42,15 @@ const cardSuite = {
   answersGerman: answersGermanNew,
   tags: tagsNew,
   bookmarked: bookmarkedNew,
+  language: "english",
 };
 
 webElements.form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   getSaved();
-  console.log(cardSuite);
+
   addNewCardToVariables(cardSuite, webElements);
-  console.log(cardSuite);
 
   saveCard();
   const card = createCard(
@@ -58,9 +58,9 @@ webElements.form.addEventListener("submit", (event) => {
     cardSuite.bookmarked,
     cardSuite.tags
   );
-  const main = document.querySelector('[data-js="cardContainer"]');
-  main.prepend(card);
-  showQuestionAndAnswer(cardSuite.questions, cardSuite.answers);
+  const cardContainer = document.querySelector('[data-js="cardContainer"]');
+  cardContainer.prepend(card);
+  showQuestionAndAnswer(cardSuite, cardSuite.questions.length - 1);
   if (darkmodeOn == "1") {
     formChangeThemeOfCards();
   }
@@ -112,3 +112,14 @@ if (darkmodeOn == "1") {
 webElements.buttomRandom.addEventListener("click", () => {
   getQuestion(webElements);
 });
+
+getSaved();
+const cardContainer = document.querySelector('[data-js="cardContainer"]');
+for (let cardNumber = 0; cardNumber < cardSuite.answers.length; cardNumber++) {
+  const card = createCard(cardNumber, cardSuite.bookmarked, cardSuite.tags);
+  cardContainer.prepend(card);
+  showQuestionAndAnswer(cardSuite, cardNumber);
+}
+if (darkmodeOn == "1") {
+  formChangeThemeOfCards();
+}
