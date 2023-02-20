@@ -2,12 +2,14 @@
 
 This project was coded for the "neue fische" boot camp.
 
+Work in progress!
+
 ## current features:
 
 - view questions
 - show and hide answer
 - add new questions with answers and tags
-- bookmark and unbookamrk cards
+- bookmark and unbookmark cards
 - dark mode
 - change language to German
 - bookmark and question counter
@@ -15,5 +17,7 @@ This project was coded for the "neue fische" boot camp.
 
 ## currently not working:
 
-- no input for german questions and answers
 - no database (data will get saved in sessionstorage)
+- delete card not working 100%.
+- bookmarking on the form page.
+- german language on form page.
