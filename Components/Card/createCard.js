@@ -1,3 +1,5 @@
+import { removeEventlistener, bookmarkClick } from "./bookmarks.js";
+
 export function createCard(cardNumber, bookmarked, tags) {
   const bookmark_black = "./../../images/bookmark_black.svg";
   const bookmark_white = "./../../images/bookmark_white.svg";
@@ -83,11 +85,11 @@ export function showQuestionAndAnswer(cardSuite, number) {
   if (cardSuite.language === "english") {
     questionsQuery[0].innerText = cardSuite.questions[number];
     answersQuery[0].innerText = cardSuite.answers[number];
-    showAnswer[0].children[0].innerText = "Delete";
+    showAnswer[0].children[0].innerText = "Delete Card";
   } else {
     questionsQuery[0].innerText = cardSuite.questionsGerman[number];
     answersQuery[0].innerText = cardSuite.answersGerman[number];
-    showAnswer[0].children[0].innerText = "Löschen";
+    showAnswer[0].children[0].innerText = "Lösche Karte";
   }
 }
 
@@ -128,6 +130,7 @@ export function makeDeleteButtonWork(cardSuite, position) {
   button[0].classList.add("card__button--delete");
   const card = document.querySelectorAll('[data-js="card"]');
   button[0].addEventListener("click", () => {
+    //removeEventlistener();
     cardSuite.questions.splice(position, 1);
     cardSuite.answers.splice(position, 1);
     cardSuite.answersGerman.splice(position, 1);
@@ -135,5 +138,6 @@ export function makeDeleteButtonWork(cardSuite, position) {
     cardSuite.tags.splice(position, 1);
     cardSuite.bookmarked.splice(position, 1);
     card[0].classList.add("display-none");
+    //bookmarkClick(cardSuite.bookmarked);
   });
 }
